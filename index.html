@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#E31E24">
+<meta name="description" content="Calendario del Mundial 2026 con horario de Chile y dónde ver cada partido. Una iniciativa de Fundación Don Bosco: el fútbol que transforma vidas.">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Mundial DB">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<title>Mundial 2026 · Fundación Don Bosco</title>
+<style>
+  :root{
+    --bg:#f5f5f7; --card:#ffffff; --line:#e7e7ee; --line2:#d6d6e0;
+    --txt:#1a1a1a; --mut:#555555; --soft:#8a8a96;
+    --red:#e31e24; --red-d:#c2151b; --red-tint:#fff5f5; --gold:#ffb800;
+    --shadow:0 4px 12px rgba(0,0,0,.08); --shadow-lg:0 12px 30px rgba(0,0,0,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth;color-scheme:light}
+  body{
+    font-family:"Montserrat",Inter,Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    background:var(--bg);color:var(--txt);min-height:100vh;
+    padding-bottom:calc(96px + env(safe-area-inset-bottom));
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;touch-action:manipulation;
+  }
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .tab,.chip,.star,.cta-btn{font-family:inherit}
+  .tab:focus-visible,.chip:focus-visible,.star:focus-visible,.search input:focus-visible,.scrolltop:focus-visible,.front-hint:focus-visible,.back-hint:focus-visible,.cta-btn:focus-visible,.brand:focus-visible{outline:2px solid var(--red);outline-offset:2px;border-radius:8px}
+  @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 20px;width:100%}
+
+  /* ===== Hero institucional ===== */
+  .hero{background:#fff;border-bottom:1px solid var(--line);padding:22px 0 22px;text-align:center}
+  .brand{display:inline-block;line-height:0}
+  .brandlogo{height:54px;width:auto;display:block;margin:0 auto 14px}
+  .htop{display:flex;align-items:center;justify-content:center;gap:10px}
+  .trophy{font-size:clamp(24px,5vw,34px)}
+  h1{font-size:clamp(26px,6.2vw,42px);font-weight:800;letter-spacing:.4px;color:var(--txt);line-height:1}
+  .sub{color:var(--mut);font-size:clamp(12px,2.5vw,15px);margin-top:7px;letter-spacing:.4px;font-weight:600}
+  .cta-band{
+    max-width:680px;margin:18px auto 0;background:var(--card);border:1px solid var(--line);
+    border-left:4px solid var(--red);border-radius:14px;box-shadow:var(--shadow);
+    padding:14px 18px;display:flex;align-items:center;gap:16px;text-align:left;flex-wrap:wrap;justify-content:center;
+  }
+  .cta-band p{font-size:14px;color:var(--txt);line-height:1.5;flex:1;min-width:220px;font-weight:500}
+  .cta-band p b{color:var(--red);font-weight:800}
+  .cta-btn{
+    flex:0 0 auto;background:var(--red);color:#fff;text-decoration:none;font-weight:700;font-size:14px;
+    padding:11px 20px;border-radius:10px;white-space:nowrap;transition:background .18s,transform .12s;
+  }
+  .cta-btn:active{transform:scale(.98)}
+  .cta-btn.ghost{background:#fff;color:var(--red);border:1.5px solid var(--red)}
+  @media(hover:hover){.cta-btn:hover{background:var(--red-d)}.cta-btn.ghost:hover{background:var(--red-tint)}}
+
+  /* ===== Controles ===== */
+  .controls{position:sticky;top:0;z-index:50;background:rgba(245,245,247,.9);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:12px 0 10px}
+  .search{position:relative;max-width:560px;margin:0 auto}
+  .search input{width:100%;padding:13px 16px 13px 44px;border-radius:12px;background:#fff;border:1px solid var(--line);color:var(--txt);font-size:16px;font-family:inherit;outline:none;transition:border-color .18s,box-shadow .18s}
+  .search input::placeholder{color:var(--soft)}
+  .search input:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(227,30,36,.14)}
+  .search svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);opacity:.5;color:var(--mut)}
+  .scrollrow{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:4px 2px;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+  .scrollrow::-webkit-scrollbar{display:none}
+  .tabs{margin-top:11px}
+  .filters{margin-top:8px}
+  .tab{flex:0 0 auto;padding:9px 16px;border-radius:20px;scroll-snap-align:start;background:#fff;border:1px solid var(--line);color:var(--mut);font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .18s,border-color .18s,color .18s}
+  .tab.active{background:var(--red);color:#fff;border-color:var(--red);box-shadow:0 4px 12px rgba(227,30,36,.28)}
+  .chip{flex:0 0 auto;padding:8px 14px;border-radius:18px;font-size:12.5px;font-weight:700;scroll-snap-align:start;background:#fff;border:1px solid var(--line);color:var(--mut);cursor:pointer;transition:background .15s,border-color .15s,color .15s;display:flex;align-items:center;gap:5px}
+  .chip .badge{font-size:11px;font-weight:800;background:var(--red);color:#fff;padding:1px 7px;border-radius:9px}
+  .chip.active{background:var(--red);color:#fff;border-color:var(--red)}
+  .chip.active .badge{background:rgba(255,255,255,.28)}
+  .chip.active[data-ch="fav"]{background:var(--gold);border-color:var(--gold);color:#1a1300}
+  @media(hover:hover){.tab:hover{border-color:var(--red);color:var(--txt)}.chip:hover{border-color:var(--red);color:var(--txt)}.chip.active:hover{color:#fff}}
+
+  /* ===== Contenido ===== */
+  main{padding-top:14px}
+  .daygroup{margin-top:24px}
+  .dayhdr{display:flex;align-items:center;gap:10px;margin:0 2px 13px}
+  .dayhdr .dot{width:9px;height:9px;border-radius:50%;background:var(--red);flex:0 0 auto}
+  .dayhdr h2{font-size:18px;font-weight:800;text-transform:capitalize;color:var(--txt)}
+  .dayhdr .line{flex:1;height:1px;background:var(--line)}
+  .dayhdr .cnt{font-size:12px;color:var(--mut);background:#fff;padding:5px 11px;border-radius:11px;font-weight:700;border:1px solid var(--line)}
+
+  .matches{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;align-items:start}
+
+  /* Tarjeta con giro 3D */
+  .match{position:relative;perspective:1500px;cursor:pointer}
+  .flip-inner{display:grid;transition:transform .6s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
+  .match.flipped .flip-inner{transform:rotateY(180deg)}
+  .match:active .flip-inner{filter:brightness(.98)}
+  .face{
+    grid-area:1/1;border:1px solid var(--line);border-radius:16px;padding:15px 17px;background:#fff;
+    display:flex;flex-direction:column;box-shadow:var(--shadow);min-height:186px;
+    -webkit-backface-visibility:hidden;backface-visibility:hidden;transition:border-color .16s,box-shadow .16s;
+  }
+  .face.front{position:relative;overflow:hidden}
+  .face.back{transform:rotateY(180deg);overflow:hidden;gap:5px}
+  @media(hover:hover){.match:hover .face{box-shadow:var(--shadow-lg)}}
+  .match.feat .face.front{border-color:#f3c9cb;background:var(--red-tint)}
+  .match.feat .face.front::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--red);z-index:1}
+  .face.back{pointer-events:none}
+  .match.flipped .face.back{pointer-events:auto}
+  .match.flipped .face.front{pointer-events:none}
+  .match.flipped .star,.match.flipped .front-hint,.match.flipped .face.front::after{visibility:hidden}
+
+  .front-hint{position:absolute;top:12px;right:46px;font-size:17px;line-height:1;opacity:.4;color:var(--mut);padding:4px;z-index:3;background:none;border:none;cursor:pointer;transition:opacity .15s,transform .15s}
+  .front-hint:hover{opacity:.85;transform:rotate(45deg)}
+
+  .mrow{display:flex;align-items:center;gap:15px;flex:1}
+  .mtime{flex:0 0 64px;text-align:center}
+  .mtime .hr{font-size:23px;font-weight:800;color:var(--red);letter-spacing:.3px;font-variant-numeric:tabular-nums}
+  .mtime .lbl{font-size:9px;color:var(--soft);margin-top:3px;letter-spacing:.7px;font-weight:700}
+  .mtime .sep{width:32px;height:1px;background:var(--line);margin:8px auto 0}
+  .mteams{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+  .team{display:flex;align-items:center;gap:11px;padding:3px 0}
+  .flag{font-size:36px;flex:0 0 auto;width:46px;text-align:center;line-height:1}
+  .tname{font-size:18px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--txt)}
+  .vs{font-size:11px;color:var(--soft);font-weight:800;padding-left:57px;letter-spacing:1px}
+  .score{margin-left:auto;font-size:24px;font-weight:800;color:var(--txt);font-variant-numeric:tabular-nums;min-width:26px;text-align:right;padding-left:8px}
+  .score.win{color:var(--red)}
+  .status{font-size:10px;font-weight:800;padding:4px 9px;border-radius:8px;letter-spacing:.3px}
+  .status.ft{background:var(--bg);color:var(--mut);border:1px solid var(--line)}
+  .status.live{background:var(--red);color:#fff}
+  .star{position:absolute;top:11px;right:13px;font-size:21px;cursor:pointer;opacity:.32;transition:opacity .16s,transform .16s;line-height:1;user-select:none;z-index:2;background:none;border:none;padding:4px;color:var(--soft)}
+  .star:hover{opacity:.7;transform:scale(1.12)}
+  .star.on{opacity:1}
+  .mfoot{display:flex;align-items:center;gap:7px;margin-top:0;padding-top:12px;border-top:1px solid var(--line);flex-wrap:wrap}
+  .grp{font-size:11px;font-weight:800;color:var(--mut);background:var(--bg);padding:4px 9px;border-radius:8px;border:1px solid var(--line)}
+  .venue{font-size:11.5px;color:var(--mut);display:flex;align-items:center;gap:3px}
+  .chans{display:flex;gap:5px;margin-left:auto;flex-wrap:wrap}
+  .ch{font-size:10.5px;font-weight:800;padding:4px 8px;border-radius:7px;letter-spacing:.3px;background:var(--bg);color:var(--mut);border:1px solid var(--line)}
+  .ch.CHV{color:var(--red);border-color:#f0c4c6;background:var(--red-tint)}
+
+  .empty{text-align:center;color:var(--mut);padding:64px 20px;font-size:15px;grid-column:1/-1}
+  .empty .big{font-size:48px;margin-bottom:12px}
+
+  /* ===== Reverso (ficha + dato Don Bosco) ===== */
+  .back-hd{font-size:11px;font-weight:800;letter-spacing:.6px;color:var(--red);text-transform:uppercase}
+  .brow{font-size:13px;font-weight:700;display:flex;gap:8px;align-items:flex-start;line-height:1.3;color:var(--txt)}
+  .brow .bi{flex:0 0 auto}
+  .bsub{font-size:11px;color:var(--mut);margin:-2px 0 2px 25px;font-weight:600}
+  .bteams{display:flex;flex-direction:column;gap:6px;margin-top:2px}
+  .bteam{display:flex;align-items:center;gap:9px}
+  .bteam .bflag{font-size:21px;width:27px;text-align:center;flex:0 0 auto;line-height:1}
+  .bteam .bt-n{font-weight:800;font-size:13px;flex:0 0 auto;color:var(--txt)}
+  .bteam .bt-d{font-size:10px;color:var(--mut);font-weight:700;margin-left:auto;text-align:right;line-height:1.2}
+  .btbd{font-size:11.5px;color:var(--mut);font-weight:600;line-height:1.4}
+  .dbfact{background:var(--red-tint);border:1px solid #f3d2d4;border-left:3px solid var(--red);border-radius:10px;padding:9px 11px;margin-top:4px}
+  .dbfact-top{display:flex;align-items:baseline;gap:9px}
+  .dbnum{font-size:21px;font-weight:800;color:var(--red);line-height:1;flex:0 0 auto;font-variant-numeric:tabular-nums}
+  .dbfact-t{font-size:11px;color:#5a3a3b;line-height:1.4;font-weight:600}
+  .dbcta{display:inline-block;margin-top:6px;font-size:11px;font-weight:800;color:var(--red);text-decoration:none}
+  .dbcta:hover{text-decoration:underline}
+  .back-hint{align-self:flex-start;margin-top:auto;color:var(--red);font-weight:800;font-size:12px;padding:8px 0 0;background:none;border:none;cursor:pointer;font-family:inherit}
+
+  /* ===== Autocompletado ===== */
+  .sugg{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:60;background:#fff;border:1px solid var(--line);border-radius:13px;overflow:hidden;box-shadow:var(--shadow-lg);display:none}
+  .sugg.open{display:block}
+  .sopt{display:flex;align-items:center;gap:10px;padding:11px 14px;cursor:pointer}
+  .sopt+.sopt{border-top:1px solid var(--line)}
+  .sopt .sflag{font-size:19px;width:25px;text-align:center;flex:0 0 auto}
+  .sopt .slabel{font-weight:700;font-size:14.5px;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--txt)}
+  .sopt .stype{font-size:10px;color:var(--soft);font-weight:800;text-transform:uppercase;letter-spacing:.4px;flex:0 0 auto}
+  .sopt.active{background:var(--red-tint)}
+  @media(hover:hover){.sopt:hover{background:var(--red-tint)}}
+
+  /* ===== Modo foco (móvil) ===== */
+  @media (max-width:560px){
+    body.focusmode .match{transition:transform .38s cubic-bezier(.2,.7,.2,1),opacity .38s}
+    body.focusmode .matches:has(.infocus) .match:not(.infocus){opacity:.5;transform:scale(.955)}
+    body.focusmode .match.infocus{transform:scale(1.02)}
+    body.focusmode .match.infocus .face.front{border-color:var(--red);box-shadow:0 12px 30px rgba(227,30,36,.18),0 0 0 1px var(--red)}
+    body.focusmode .match.infocus .face.front::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;background:linear-gradient(115deg,transparent 35%,rgba(227,30,36,.1) 50%,transparent 65%);background-size:260% 100%;animation:sheen 2.6s ease-in-out infinite}
+  }
+  @keyframes sheen{0%{background-position:140% 0}100%{background-position:-140% 0}}
+
+  /* ===== Leyenda + footer ===== */
+  .legend{position:fixed;bottom:0;left:0;right:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:11px 14px calc(11px + env(safe-area-inset-bottom));display:flex;gap:13px;justify-content:center;flex-wrap:wrap}
+  .lg{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--mut);font-weight:600}
+  .lg b{font-size:10px;font-weight:800;padding:3px 7px;border-radius:6px}
+  .scrolltop{position:fixed;bottom:72px;right:16px;z-index:55;width:46px;height:46px;border-radius:50%;background:var(--red);border:none;color:#fff;font-size:19px;cursor:pointer;box-shadow:0 6px 18px rgba(227,30,36,.4);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+  .scrolltop.show{opacity:1;pointer-events:auto}
+  @media(hover:hover){.scrolltop:hover{transform:scale(1.08);background:var(--red-d)}}
+  .note{font-size:11.5px;color:var(--mut);text-align:center;padding:28px 0 6px;line-height:1.7;max-width:760px;margin:0 auto}
+  .note b{color:var(--txt)}
+  .dbfooter{max-width:680px;margin:14px auto 0;text-align:center;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:24px 22px}
+  .footlogo{height:50px;width:auto;margin:0 auto 12px;display:block}
+  .dbfooter p{font-size:13.5px;color:var(--mut);line-height:1.6;max-width:520px;margin:0 auto 16px}
+  .dbfooter p b{color:var(--txt)}
+  .footctas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+  @media (max-width:560px){
+    .wrap{padding:0 14px}
+    .matches{grid-template-columns:1fr}
+    .brandlogo{height:46px}
+    .mtime{flex-basis:56px}
+    .mtime .hr{font-size:21px}
+    .flag{font-size:34px;width:42px}
+    .tname{font-size:16.5px}
+    .cta-band{flex-direction:column;text-align:center}
+    .cta-band p{min-width:0}
+  }
+
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <a class="brand" href="https://fundaciondonbosco.pro" target="_blank" rel="noopener" aria-label="Ir al sitio de Fundación Don Bosco">
+      <img src="LogoFDB.png" alt="Fundación Don Bosco · Transformando Vidas" class="brandlogo" width="260" height="104">
+    </a>
+    <div class="htop"><span class="trophy">🏆</span><h1>MUNDIAL 2026</h1></div>
+    <div class="sub">🇨🇦 🇲🇽 🇺🇸 · HORARIO DE CHILE (CLT) · DÓNDE VERLO</div>
+    <div class="cta-band">
+      <p>En la cancha se juega el Mundial. En el <b>Patio Don Bosco</b>, el fútbol educa, protege y transforma todos los días.</p>
+      <a class="cta-btn" href="https://fundaciondonbosco.pro" target="_blank" rel="noopener">Conoce la Fundación</a>
+    </div>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="wrap">
+    <div class="search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+      <label for="q" class="sr-only">Buscar partido por selección, sede o grupo</label>
+      <input id="q" name="buscar" type="search" autocomplete="off" autocorrect="off" spellcheck="false" role="combobox" aria-expanded="false" aria-controls="suggList" aria-autocomplete="list" aria-label="Buscar partido por selección, sede o grupo" placeholder="Buscar selección, sede o grupo… (prueba “Brasil”)">
+      <div id="suggList" class="sugg" role="listbox" aria-label="Sugerencias de búsqueda"></div>
+    </div>
+    <div class="scrollrow tabs" id="tabs"></div>
+    <div class="scrollrow filters" id="filters" role="group" aria-label="Filtrar por canal">
+      <button type="button" class="chip active" data-ch="all">Todos</button>
+      <button type="button" class="chip" data-ch="fav">⭐ Favoritos<span class="badge" id="favBadge" style="display:none">0</span></button>
+      <button type="button" class="chip" data-ch="CHV">CHV · gratis</button>
+      <button type="button" class="chip" data-ch="DSP">DSports</button>
+      <button type="button" class="chip" data-ch="P+">Paramount+</button>
+      <button type="button" class="chip" data-ch="D+">Disney+</button>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="sr-only" id="status" aria-live="polite"></div>
+  <div class="wrap" id="app"></div>
+  <div class="wrap">
+    <div class="note">
+      📺 <b>DSports</b> transmite los 104 partidos · <b>Paramount+</b> todo por streaming · <b>Chilevisión</b> partidos seleccionados gratis en TV abierta · <b>Disney+</b> 22 partidos de fase de grupos.<br>
+      ⏱️ Chile (CLT, UTC−4) tiene la misma hora que el Este de EE.UU. en estas fechas. Los partidos a las 00:00 son de la madrugada del día indicado.
+    </div>
+    <footer class="dbfooter">
+      <img src="LogoFDB.png" alt="Fundación Don Bosco · Transformando Vidas" class="footlogo" width="240" height="96">
+      <p>Una iniciativa de <b>Fundación Don Bosco</b>. Obra salesiana en Chile desde 1998: usamos el deporte y el juego para acompañar a niños, niñas y adolescentes, y abrirles futuro.</p>
+      <div class="footctas">
+        <a class="cta-btn" href="https://fundaciondonbosco.pro" target="_blank" rel="noopener">Conoce la Fundación</a>
+        <a class="cta-btn ghost" href="https://fundaciondonbosco.pro" target="_blank" rel="noopener">Sé parte del cambio</a>
+      </div>
+    </footer>
+  </div>
+</main>
+
+<button class="scrolltop" id="stop" aria-label="Volver arriba">↑</button>
+
+<div class="legend">
+  <div class="lg"><b class="ch CHV">CHV</b>Chilevisión</div>
+  <div class="lg"><b class="ch DSP">DSP</b>DSports</div>
+  <div class="lg"><b class="ch Pplus">P+</b>Paramount+</div>
+  <div class="lg"><b class="ch Dplus">D+</b>Disney+</div>
+</div>
+
+<script>
+// ===== DATOS =====
+// stage: gr=grupos, r32=dieciseisavos, r16=octavos, qf=cuartos, sf=semis, tp=tercer puesto, fin=final
+const FLAGS={
+ "México":"🇲🇽","Sudáfrica":"🇿🇦","Corea del Sur":"🇰🇷","Chequia":"🇨🇿","Canadá":"🇨🇦",
+ "Bosnia":"🇧🇦","EE.UU.":"🇺🇸","Paraguay":"🇵🇾","Qatar":"🇶🇦","Suiza":"🇨🇭","Brasil":"🇧🇷",
+ "Marruecos":"🇲🇦","Haití":"🇭🇹","Escocia":"🏴󠁧󠁢󠁳󠁣󠁴󠁿","Australia":"🇦🇺","Turquía":"🇹🇷",
+ "Alemania":"🇩🇪","Curazao":"🇨🇼","Países Bajos":"🇳🇱","Japón":"🇯🇵","Costa de Marfil":"🇨🇮",
+ "Ecuador":"🇪🇨","Suecia":"🇸🇪","Túnez":"🇹🇳","España":"🇪🇸","Cabo Verde":"🇨🇻","Bélgica":"🇧🇪",
+ "Egipto":"🇪🇬","Arabia Saudita":"🇸🇦","Uruguay":"🇺🇾","Irán":"🇮🇷","Nueva Zelanda":"🇳🇿",
+ "Francia":"🇫🇷","Senegal":"🇸🇳","Irak":"🇮🇶","Noruega":"🇳🇴","Argentina":"🇦🇷","Argelia":"🇩🇿",
+ "Austria":"🇦🇹","Jordania":"🇯🇴","Portugal":"🇵🇹","RD Congo":"🇨🇩","Inglaterra":"🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+ "Croacia":"🇭🇷","Ghana":"🇬🇭","Panamá":"🇵🇦","Uzbekistán":"🇺🇿","Colombia":"🇨🇴"
+};
+const F=(t)=>FLAGS[t]||"⚽";
+
+// feat = partido destacado / atractivo
+const M=[
+ // ---- FASE DE GRUPOS ----
+ {d:"Jue 11 jun",dk:"06-11",t:"15:00",a:"México",b:"Sudáfrica",g:"A",v:"Ciudad de México",ch:["CHV","DSP","P+","D+"],s:"gr",feat:1,tag:"INAUGURAL"},
+ {d:"Jue 11 jun",dk:"06-11",t:"22:00",a:"Corea del Sur",b:"Chequia",g:"A",v:"Guadalajara",ch:["DSP","P+"],s:"gr"},
+ {d:"Vie 12 jun",dk:"06-12",t:"15:00",a:"Canadá",b:"Bosnia",g:"B",v:"Toronto",ch:["CHV","DSP","P+"],s:"gr"},
+ {d:"Vie 12 jun",dk:"06-12",t:"21:00",a:"EE.UU.",b:"Paraguay",g:"D",v:"Los Ángeles",ch:["CHV","DSP","P+","D+"],s:"gr",feat:1},
+ {d:"Sáb 13 jun",dk:"06-13",t:"15:00",a:"Qatar",b:"Suiza",g:"B",v:"San Francisco",ch:["DSP","P+"],s:"gr"},
+ {d:"Sáb 13 jun",dk:"06-13",t:"18:00",a:"Brasil",b:"Marruecos",g:"C",v:"Nueva York/NJ",ch:["CHV","DSP","P+","D+"],s:"gr",feat:1},
+ {d:"Sáb 13 jun",dk:"06-13",t:"21:00",a:"Haití",b:"Escocia",g:"C",v:"Boston",ch:["DSP","P+"],s:"gr"},
+ {d:"Sáb 13 jun",dk:"06-13",t:"00:00",a:"Australia",b:"Turquía",g:"D",v:"Vancouver",ch:["DSP","P+"],s:"gr"},
+ {d:"Dom 14 jun",dk:"06-14",t:"13:00",a:"Alemania",b:"Curazao",g:"E",v:"Houston",ch:["DSP","P+","D+"],s:"gr"},
+ {d:"Dom 14 jun",dk:"06-14",t:"16:00",a:"Países Bajos",b:"Japón",g:"F",v:"Dallas",ch:["DSP","P+"],s:"gr"},
+ {d:"Dom 14 jun",dk:"06-14",t:"19:00",a:"Costa de Marfil",b:"Ecuador",g:"E",v:"Filadelfia",ch:["DSP","P+","D+"],s:"gr",feat:1},
+ {d:"Dom 14 jun",dk:"06-14",t:"22:00",a:"Suecia",b:"Túnez",g:"F",v:"Monterrey",ch:["DSP","P+"],s:"gr"},
+ {d:"Lun 15 jun",dk:"06-15",t:"12:00",a:"España",b:"Cabo Verde",g:"H",v:"Atlanta",ch:["DSP","P+","D+"],s:"gr"},
+ {d:"Lun 15 jun",dk:"06-15",t:"15:00",a:"Bélgica",b:"Egipto",g:"G",v:"Seattle",ch:["CHV","DSP","P+"],s:"gr"},
+ {d:"Lun 15 jun",dk:"06-15",t:"18:00",a:"Arabia Saudita",b:"Uruguay",g:"H",v:"Miami",ch:["DSP","P+","D+"],s:"gr",feat:1},
+ {d:"Lun 15 jun",dk:"06-15",t:"21:00",a:"Irán",b:"Nueva Zelanda",g:"G",v:"Los Ángeles",ch:["DSP","P+"],s:"gr"},
+ {d:"Mar 16 jun",dk:"06-16",t:"15:00",a:"Francia",b:"Senegal",g:"I",v:"Nueva York/NJ",ch:["CHV","DSP","P+","D+"],s:"gr",feat:1},
+ {d:"Mar 16 jun",dk:"06-16",t:"18:00",a:"Irak",b:"Noruega",g:"I",v:"Boston",ch:["DSP","P+"],s:"gr"},
+ {d:"Mar 16 jun",dk:"06-16",t:"21:00",a:"Argentina",b:"Argelia",g:"J",v:"Kansas City",ch:["CHV","DSP","P+","D+"],s:"gr",feat:1},
+ {d:"Mié 17 jun",dk:"06-17",t:"00:00",a:"Austria",b:"Jordania",g:"J",v:"San Francisco",ch:["DSP","P+"],s:"gr"},
+ {d:"Mié 17 jun",dk:"06-17",t:"13:00",a:"Portugal",b:"RD Congo",g:"K",v:"Houston",ch:["CHV","DSP","P+","D+"],s:"gr",feat:1},
+ {d:"Mié 17 jun",dk:"06-17",t:"16:00",a:"Inglaterra",b:"Croacia",g:"L",v:"Dallas",ch:["DSP","P+"],s:"gr",feat:1},
+ {d:"Mié 17 jun",dk:"06-17",t:"19:00",a:"Ghana",b:"Panamá",g:"L",v:"Toronto",ch:["DSP","P+"],s:"gr"},
+ {d:"Mié 17 jun",dk:"06-17",t:"22:00",a:"Uzbekistán",b:"Colombia",g:"K",v:"Ciudad de México",ch:["DSP","P+","D+"],s:"gr",feat:1},
+ {d:"Jue 18 jun",dk:"06-18",t:"12:00",a:"Chequia",b:"Sudáfrica",g:"A",v:"Atlanta",ch:["DSP","P+"],s:"gr"},
+ {d:"Jue 18 jun",dk:"06-18",t:"15:00",a:"Suiza",b:"Bosnia",g:"B",v:"Los Ángeles",ch:["DSP","P+"],s:"gr"},
+ {d:"Jue 18 jun",dk:"06-18",t:"18:00",a:"Canadá",b:"Qatar",g:"B",v:"Vancouver",ch:["DSP","P+"],s:"gr"},
+ {d:"Jue 18 jun",dk:"06-18",t:"21:00",a:"México",b:"Corea del Sur",g:"A",v:"Guadalajara",ch:["CHV","DSP","P+"],s:"gr",feat:1},
+ {d:"Vie 19 jun",dk:"06-19",t:"15:00",a:"EE.UU.",b:"Australia",g:"D",v:"Seattle",ch:["DSP","P+"],s:"gr"},
+ {d:"Vie 19 jun",dk:"06-19",t:"18:00",a:"Escocia",b:"Marruecos",g:"C",v:"Boston",ch:["DSP","P+"],s:"gr"},
+ {d:"Vie 19 jun",dk:"06-19",t:"20:30",a:"Brasil",b:"Haití",g:"C",v:"Filadelfia",ch:["CHV","DSP","P+","D+"],s:"gr",feat:1},
+ {d:"Vie 19 jun",dk:"06-19",t:"23:00",a:"Turquía",b:"Paraguay",g:"D",v:"San Francisco",ch:["DSP","P+"],s:"gr"},
+ {d:"Sáb 20 jun",dk:"06-20",t:"13:00",a:"Países Bajos",b:"Suecia",g:"F",v:"Houston",ch:["DSP","P+"],s:"gr"},
+ {d:"Sáb 20 jun",dk:"06-20",t:"16:00",a:"Alemania",b:"Costa de Marfil",g:"E",v:"Toronto",ch:["DSP","P+"],s:"gr"},
+ {d:"Sáb 20 jun",dk:"06-20",t:"20:00",a:"Ecuador",b:"Curazao",g:"E",v:"Kansas City",ch:["CHV","DSP","P+","D+"],s:"gr",feat:1},
+ {d:"Sáb 20 jun",dk:"06-20",t:"00:00",a:"Túnez",b:"Japón",g:"F",v:"Monterrey",ch:["DSP","P+"],s:"gr"},
+ {d:"Dom 21 jun",dk:"06-21",t:"12:00",a:"España",b:"Arabia Saudita",g:"H",v:"Atlanta",ch:["CHV","DSP","P+","D+"],s:"gr",feat:1},
+ {d:"Dom 21 jun",dk:"06-21",t:"15:00",a:"Bélgica",b:"Irán",g:"G",v:"Los Ángeles",ch:["DSP","P+"],s:"gr"},
+ {d:"Dom 21 jun",dk:"06-21",t:"18:00",a:"Uruguay",b:"Cabo Verde",g:"H",v:"Miami",ch:["DSP","P+","D+"],s:"gr",feat:1},
+ {d:"Dom 21 jun",dk:"06-21",t:"21:00",a:"Nueva Zelanda",b:"Egipto",g:"G",v:"Vancouver",ch:["DSP","P+"],s:"gr"},
+ {d:"Lun 22 jun",dk:"06-22",t:"13:00",a:"Argentina",b:"Austria",g:"J",v:"Dallas",ch:["CHV","DSP","P+","D+"],s:"gr",feat:1},
+ {d:"Lun 22 jun",dk:"06-22",t:"17:00",a:"Francia",b:"Irak",g:"I",v:"Filadelfia",ch:["CHV","DSP","P+"],s:"gr"},
+ {d:"Lun 22 jun",dk:"06-22",t:"20:00",a:"Noruega",b:"Senegal",g:"I",v:"Nueva York/NJ",ch:["DSP","P+"],s:"gr"},
+ {d:"Lun 22 jun",dk:"06-22",t:"23:00",a:"Jordania",b:"Argelia",g:"J",v:"San Francisco",ch:["DSP","P+"],s:"gr"},
+ {d:"Mar 23 jun",dk:"06-23",t:"13:00",a:"Portugal",b:"Uzbekistán",g:"K",v:"Houston",ch:["DSP","P+"],s:"gr"},
+ {d:"Mar 23 jun",dk:"06-23",t:"16:00",a:"Inglaterra",b:"Ghana",g:"L",v:"Boston",ch:["DSP","P+"],s:"gr"},
+ {d:"Mar 23 jun",dk:"06-23",t:"19:00",a:"Panamá",b:"Croacia",g:"L",v:"Toronto",ch:["DSP","P+"],s:"gr"},
+ {d:"Mar 23 jun",dk:"06-23",t:"22:00",a:"Colombia",b:"RD Congo",g:"K",v:"Guadalajara",ch:["CHV","DSP","P+","D+"],s:"gr",feat:1},
+ {d:"Mié 24 jun",dk:"06-24",t:"15:00",a:"Suiza",b:"Canadá",g:"B",v:"Vancouver",ch:["DSP","P+"],s:"gr"},
+ {d:"Mié 24 jun",dk:"06-24",t:"15:00",a:"Bosnia",b:"Qatar",g:"B",v:"Seattle",ch:["DSP","P+"],s:"gr"},
+ {d:"Mié 24 jun",dk:"06-24",t:"18:00",a:"Escocia",b:"Brasil",g:"C",v:"Miami",ch:["CHV","DSP","P+","D+"],s:"gr",feat:1},
+ {d:"Mié 24 jun",dk:"06-24",t:"18:00",a:"Marruecos",b:"Haití",g:"C",v:"Atlanta",ch:["DSP","P+"],s:"gr"},
+ {d:"Mié 24 jun",dk:"06-24",t:"21:00",a:"Chequia",b:"México",g:"A",v:"Ciudad de México",ch:["CHV","DSP","P+"],s:"gr",feat:1},
+ {d:"Mié 24 jun",dk:"06-24",t:"21:00",a:"Sudáfrica",b:"Corea del Sur",g:"A",v:"Monterrey",ch:["DSP","P+"],s:"gr"},
+ {d:"Jue 25 jun",dk:"06-25",t:"16:00",a:"Curazao",b:"Costa de Marfil",g:"E",v:"Filadelfia",ch:["DSP","P+"],s:"gr"},
+ {d:"Jue 25 jun",dk:"06-25",t:"16:00",a:"Ecuador",b:"Alemania",g:"E",v:"Nueva York/NJ",ch:["CHV","DSP","P+","D+"],s:"gr",feat:1},
+ {d:"Jue 25 jun",dk:"06-25",t:"19:00",a:"Japón",b:"Suecia",g:"F",v:"Dallas",ch:["DSP","P+"],s:"gr"},
+ {d:"Jue 25 jun",dk:"06-25",t:"19:00",a:"Túnez",b:"Países Bajos",g:"F",v:"Kansas City",ch:["DSP","P+"],s:"gr"},
+ {d:"Jue 25 jun",dk:"06-25",t:"22:00",a:"Turquía",b:"EE.UU.",g:"D",v:"Los Ángeles",ch:["DSP","P+"],s:"gr"},
+ {d:"Jue 25 jun",dk:"06-25",t:"22:00",a:"Paraguay",b:"Australia",g:"D",v:"San Francisco",ch:["DSP","P+"],s:"gr"},
+ {d:"Vie 26 jun",dk:"06-26",t:"15:00",a:"Noruega",b:"Francia",g:"I",v:"Boston",ch:["CHV","DSP","P+"],s:"gr",feat:1},
+ {d:"Vie 26 jun",dk:"06-26",t:"15:00",a:"Senegal",b:"Irak",g:"I",v:"Toronto",ch:["DSP","P+"],s:"gr"},
+ {d:"Vie 26 jun",dk:"06-26",t:"20:00",a:"Cabo Verde",b:"Arabia Saudita",g:"H",v:"Houston",ch:["DSP","P+"],s:"gr"},
+ {d:"Vie 26 jun",dk:"06-26",t:"20:00",a:"Uruguay",b:"España",g:"H",v:"Guadalajara",ch:["CHV","DSP","P+","D+"],s:"gr",feat:1},
+ {d:"Vie 26 jun",dk:"06-26",t:"23:00",a:"Egipto",b:"Irán",g:"G",v:"Seattle",ch:["DSP","P+"],s:"gr"},
+ {d:"Vie 26 jun",dk:"06-26",t:"23:00",a:"Nueva Zelanda",b:"Bélgica",g:"G",v:"Vancouver",ch:["DSP","P+"],s:"gr"},
+ {d:"Sáb 27 jun",dk:"06-27",t:"17:00",a:"Panamá",b:"Inglaterra",g:"L",v:"Nueva York/NJ",ch:["DSP","P+"],s:"gr"},
+ {d:"Sáb 27 jun",dk:"06-27",t:"17:00",a:"Croacia",b:"Ghana",g:"L",v:"Filadelfia",ch:["DSP","P+"],s:"gr"},
+ {d:"Sáb 27 jun",dk:"06-27",t:"19:30",a:"Colombia",b:"Portugal",g:"K",v:"Miami",ch:["CHV","DSP","P+","D+"],s:"gr",feat:1},
+ {d:"Sáb 27 jun",dk:"06-27",t:"19:30",a:"RD Congo",b:"Uzbekistán",g:"K",v:"Atlanta",ch:["DSP","P+"],s:"gr"},
+ {d:"Sáb 27 jun",dk:"06-27",t:"22:00",a:"Argelia",b:"Austria",g:"J",v:"Kansas City",ch:["DSP","P+"],s:"gr"},
+ {d:"Sáb 27 jun",dk:"06-27",t:"22:00",a:"Jordania",b:"Argentina",g:"J",v:"Dallas",ch:["CHV","DSP","P+","D+"],s:"gr",feat:1},
+ // ---- DIECISEISAVOS (R32) ----
+ {d:"Dom 28 jun",dk:"06-28",t:"—",a:"2º Grupo A",b:"2º Grupo B",g:"P73",v:"Los Ángeles",ch:["DSP","P+"],s:"r32"},
+ {d:"Lun 29 jun",dk:"06-29",t:"—",a:"1º Grupo E",b:"3º A/B/C/D/F",g:"P74",v:"Boston",ch:["DSP","P+"],s:"r32"},
+ {d:"Lun 29 jun",dk:"06-29",t:"—",a:"1º Grupo F",b:"2º Grupo C",g:"P75",v:"Monterrey",ch:["DSP","P+"],s:"r32"},
+ {d:"Lun 29 jun",dk:"06-29",t:"—",a:"1º Grupo C",b:"2º Grupo F",g:"P76",v:"Houston",ch:["DSP","P+"],s:"r32"},
+ {d:"Mar 30 jun",dk:"06-30",t:"—",a:"1º Grupo I",b:"3º C/D/F/G/H",g:"P77",v:"Nueva York/NJ",ch:["DSP","P+"],s:"r32"},
+ {d:"Mar 30 jun",dk:"06-30",t:"—",a:"2º Grupo E",b:"2º Grupo I",g:"P78",v:"Dallas",ch:["DSP","P+"],s:"r32"},
+ {d:"Mar 30 jun",dk:"06-30",t:"—",a:"1º Grupo A",b:"3º C/E/F/H/I",g:"P79",v:"Ciudad de México",ch:["DSP","P+"],s:"r32"},
+ {d:"Mié 1 jul",dk:"07-01",t:"—",a:"1º Grupo L",b:"3º E/H/I/J/K",g:"P80",v:"Atlanta",ch:["DSP","P+"],s:"r32"},
+ {d:"Mié 1 jul",dk:"07-01",t:"—",a:"1º Grupo D",b:"3º B/E/F/I/J",g:"P81",v:"San Francisco",ch:["DSP","P+"],s:"r32"},
+ {d:"Mié 1 jul",dk:"07-01",t:"—",a:"1º Grupo G",b:"3º A/E/H/I/J",g:"P82",v:"Seattle",ch:["DSP","P+"],s:"r32"},
+ {d:"Jue 2 jul",dk:"07-02",t:"—",a:"2º Grupo K",b:"2º Grupo L",g:"P83",v:"Toronto",ch:["DSP","P+"],s:"r32"},
+ {d:"Jue 2 jul",dk:"07-02",t:"—",a:"1º Grupo H",b:"2º Grupo J",g:"P84",v:"Los Ángeles",ch:["DSP","P+"],s:"r32"},
+ {d:"Jue 2 jul",dk:"07-02",t:"—",a:"1º Grupo B",b:"3º E/F/G/I/J",g:"P85",v:"Vancouver",ch:["DSP","P+"],s:"r32"},
+ {d:"Vie 3 jul",dk:"07-03",t:"—",a:"1º Grupo J",b:"2º Grupo H",g:"P86",v:"Miami",ch:["DSP","P+"],s:"r32"},
+ {d:"Vie 3 jul",dk:"07-03",t:"—",a:"1º Grupo K",b:"3º D/E/I/J/L",g:"P87",v:"Kansas City",ch:["DSP","P+"],s:"r32"},
+ {d:"Vie 3 jul",dk:"07-03",t:"—",a:"2º Grupo D",b:"2º Grupo G",g:"P88",v:"Dallas",ch:["DSP","P+"],s:"r32"},
+ // ---- OCTAVOS (R16) ----
+ {d:"Sáb 4 jul",dk:"07-04",t:"—",a:"Ganador P74",b:"Ganador P77",g:"P89",v:"Filadelfia",ch:["DSP","P+"],s:"r16"},
+ {d:"Sáb 4 jul",dk:"07-04",t:"—",a:"Ganador P73",b:"Ganador P75",g:"P90",v:"Houston",ch:["DSP","P+"],s:"r16"},
+ {d:"Dom 5 jul",dk:"07-05",t:"—",a:"Ganador P76",b:"Ganador P78",g:"P91",v:"Nueva York/NJ",ch:["DSP","P+"],s:"r16"},
+ {d:"Dom 5 jul",dk:"07-05",t:"—",a:"Ganador P79",b:"Ganador P80",g:"P92",v:"Ciudad de México",ch:["DSP","P+"],s:"r16"},
+ {d:"Lun 6 jul",dk:"07-06",t:"—",a:"Ganador P83",b:"Ganador P84",g:"P93",v:"Dallas",ch:["DSP","P+"],s:"r16"},
+ {d:"Lun 6 jul",dk:"07-06",t:"—",a:"Ganador P81",b:"Ganador P82",g:"P94",v:"Seattle",ch:["DSP","P+"],s:"r16"},
+ {d:"Mar 7 jul",dk:"07-07",t:"—",a:"Ganador P86",b:"Ganador P88",g:"P95",v:"Atlanta",ch:["DSP","P+"],s:"r16"},
+ {d:"Mar 7 jul",dk:"07-07",t:"—",a:"Ganador P85",b:"Ganador P87",g:"P96",v:"Vancouver",ch:["DSP","P+"],s:"r16"},
+ // ---- CUARTOS (QF) ----
+ {d:"Jue 9 jul",dk:"07-09",t:"—",a:"Ganador P89",b:"Ganador P90",g:"P97",v:"Boston",ch:["CHV","DSP","P+"],s:"qf",feat:1},
+ {d:"Vie 10 jul",dk:"07-10",t:"—",a:"Ganador P93",b:"Ganador P94",g:"P98",v:"Los Ángeles",ch:["CHV","DSP","P+"],s:"qf",feat:1},
+ {d:"Sáb 11 jul",dk:"07-11",t:"—",a:"Ganador P91",b:"Ganador P92",g:"P99",v:"Miami",ch:["CHV","DSP","P+"],s:"qf",feat:1},
+ {d:"Sáb 11 jul",dk:"07-11",t:"—",a:"Ganador P95",b:"Ganador P96",g:"P100",v:"Kansas City",ch:["CHV","DSP","P+"],s:"qf",feat:1},
+ // ---- SEMIFINALES (SF) ----
+ {d:"Mar 14 jul",dk:"07-14",t:"—",a:"Ganador P97",b:"Ganador P98",g:"P101",v:"Dallas",ch:["CHV","DSP","P+"],s:"sf",feat:1},
+ {d:"Mié 15 jul",dk:"07-15",t:"—",a:"Ganador P99",b:"Ganador P100",g:"P102",v:"Atlanta",ch:["CHV","DSP","P+"],s:"sf",feat:1},
+ // ---- TERCER PUESTO (TP) ----
+ {d:"Sáb 18 jul",dk:"07-18",t:"—",a:"Perdedor P101",b:"Perdedor P102",g:"P103",v:"Miami",ch:["CHV","DSP","P+"],s:"tp",feat:1},
+ // ---- FINAL ----
+ {d:"Dom 19 jul",dk:"07-19",t:"—",a:"Ganador P101",b:"Ganador P102",g:"P104",v:"Nueva York/NJ",ch:["CHV","DSP","P+","D+"],s:"fin",feat:1,tag:"FINAL"}
+];
+
+const STAGES=[
+ {k:"all",n:"Todo"},
+ {k:"gr",n:"⚽ Grupos"},
+ {k:"r32",n:"Dieciseisavos"},
+ {k:"r16",n:"Octavos"},
+ {k:"qf",n:"Cuartos"},
+ {k:"sf",n:"Semis"},
+ {k:"tp",n:"3er puesto"},
+ {k:"fin",n:"🏆 Final"}
+];
+
+let curStage="all", curChan="all", curQ="", favs={};
+let RESULTS={};
+try{favs=JSON.parse(localStorage.getItem("wc26_favs")||"{}")}catch(e){favs={}}
+
+// build tabs
+const tabsEl=document.getElementById("tabs");
+STAGES.forEach(st=>{
+ const b=document.createElement("button");
+ b.type="button";
+ b.className="tab"+(st.k===curStage?" active":"");
+ b.textContent=st.n;b.dataset.k=st.k;
+ b.onclick=()=>{curStage=st.k;[...tabsEl.children].forEach(c=>c.classList.toggle("active",c.dataset.k===st.k));render()};
+ tabsEl.appendChild(b);
+});
+
+// filters
+document.querySelectorAll(".chip").forEach(c=>{
+ c.onclick=()=>{
+  curChan=c.dataset.ch;
+  document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));
+  c.classList.add("active");
+  render();
+ };
+});
+
+const chClass=(c)=>c==="P+"?"Pplus":c==="D+"?"Dplus":c;
+const mid=(m)=>m.dk+m.t+m.a+m.b;
+const norm=(s)=>s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+
+// ===== Buscador con autocompletado =====
+const qEl=document.getElementById("q");
+const suggEl=document.getElementById("suggList");
+const SUG=(()=>{
+ const map=new Map();
+ const add=(label,type,flag)=>{const k=type+"|"+label;if(!map.has(k))map.set(k,{label,type,flag:flag||"⚽"})};
+ M.forEach(m=>{
+   [m.a,m.b].forEach(t=>{if(FLAGS[t])add(t,"sel",F(t))});
+   add(m.v,"sede","📍");
+   if(!m.g.startsWith("P"))add("Grupo "+m.g,"grupo","🔤");
+ });
+ return [...map.values()];
+})();
+let suggItems=[],activeIdx=-1;
+function suggFor(q){
+ const nq=norm((q||"").trim());if(!nq)return [];
+ const a=[],b=[];
+ SUG.forEach(s=>{const n=norm(s.label);if(n.startsWith(nq))a.push(s);else if(n.includes(nq))b.push(s)});
+ return a.concat(b).slice(0,7);
+}
+function closeSugg(){suggEl.classList.remove("open");suggEl.innerHTML="";qEl.setAttribute("aria-expanded","false");qEl.removeAttribute("aria-activedescendant");suggItems=[];activeIdx=-1}
+function openSugg(items){
+ suggItems=items;activeIdx=-1;
+ if(!items.length){closeSugg();return}
+ suggEl.innerHTML=items.map((s,i)=>`<div class="sopt" role="option" id="sopt-${i}" aria-selected="false"><span class="sflag">${s.flag}</span><span class="slabel">${s.label}</span><span class="stype">${s.type==="sel"?"selección":s.type}</span></div>`).join("");
+ [...suggEl.children].forEach((el,i)=>el.addEventListener("mousedown",ev=>{ev.preventDefault();pick(i)}));
+ suggEl.classList.add("open");qEl.setAttribute("aria-expanded","true");
+}
+function setActive(i){
+ const opts=[...suggEl.children];
+ opts.forEach(o=>{o.classList.remove("active");o.setAttribute("aria-selected","false")});
+ if(i>=0&&opts[i]){opts[i].classList.add("active");opts[i].setAttribute("aria-selected","true");qEl.setAttribute("aria-activedescendant","sopt-"+i);opts[i].scrollIntoView({block:"nearest"})}
+ activeIdx=i;
+}
+function pick(i){const s=suggItems[i];if(!s)return;qEl.value=s.label;curQ=norm(s.label);closeSugg();render();qEl.focus()}
+qEl.addEventListener("input",e=>{const v=e.target.value;curQ=norm(v.trim());openSugg(suggFor(v));render()});
+qEl.addEventListener("focus",e=>{if(e.target.value.trim())openSugg(suggFor(e.target.value))});
+qEl.addEventListener("blur",()=>setTimeout(closeSugg,120));
+qEl.addEventListener("keydown",e=>{
+ if(!suggEl.classList.contains("open")){if(e.key==="ArrowDown"&&qEl.value.trim())openSugg(suggFor(qEl.value));return}
+ if(e.key==="ArrowDown"){e.preventDefault();setActive(Math.min(activeIdx+1,suggItems.length-1))}
+ else if(e.key==="ArrowUp"){e.preventDefault();setActive(activeIdx<=0?suggItems.length-1:activeIdx-1)}
+ else if(e.key==="Enter"){if(activeIdx>=0){e.preventDefault();pick(activeIdx)}else closeSugg()}
+ else if(e.key==="Escape"){closeSugg()}
+});
+
+// ===== Datos del reverso (verificables, no inventados) =====
+const VENUEINFO={
+ "Ciudad de México":{est:"Estadio Azteca",pais:"🇲🇽 México"},
+ "Guadalajara":{est:"Estadio Akron",pais:"🇲🇽 México"},
+ "Monterrey":{est:"Estadio BBVA",pais:"🇲🇽 México"},
+ "Toronto":{est:"BMO Field",pais:"🇨🇦 Canadá"},
+ "Vancouver":{est:"BC Place",pais:"🇨🇦 Canadá"},
+ "Los Ángeles":{est:"SoFi Stadium",pais:"🇺🇸 EE.UU."},
+ "San Francisco":{est:"Levi's Stadium",pais:"🇺🇸 EE.UU."},
+ "Seattle":{est:"Lumen Field",pais:"🇺🇸 EE.UU."},
+ "Kansas City":{est:"Arrowhead Stadium",pais:"🇺🇸 EE.UU."},
+ "Dallas":{est:"AT&T Stadium",pais:"🇺🇸 EE.UU."},
+ "Atlanta":{est:"Mercedes-Benz Stadium",pais:"🇺🇸 EE.UU."},
+ "Houston":{est:"NRG Stadium",pais:"🇺🇸 EE.UU."},
+ "Boston":{est:"Gillette Stadium",pais:"🇺🇸 EE.UU."},
+ "Filadelfia":{est:"Lincoln Financial Field",pais:"🇺🇸 EE.UU."},
+ "Miami":{est:"Hard Rock Stadium",pais:"🇺🇸 EE.UU."},
+ "Nueva York/NJ":{est:"MetLife Stadium",pais:"🇺🇸 EE.UU."}
+};
+const CONF={
+ CONMEBOL:["Brasil","Argentina","Uruguay","Paraguay","Ecuador","Colombia"],
+ UEFA:["Alemania","Países Bajos","España","Bélgica","Francia","Inglaterra","Escocia","Suiza","Croacia","Austria","Noruega","Portugal","Chequia","Bosnia","Turquía","Suecia"],
+ CONCACAF:["México","Canadá","EE.UU.","Panamá","Curazao","Haití"],
+ CAF:["Sudáfrica","Marruecos","Costa de Marfil","Túnez","Cabo Verde","Egipto","Senegal","Argelia","RD Congo","Ghana"],
+ AFC:["Corea del Sur","Qatar","Australia","Japón","Arabia Saudita","Irán","Irak","Jordania","Uzbekistán"],
+ OFC:["Nueva Zelanda"]
+};
+const TITLES={"Brasil":5,"Alemania":4,"Argentina":3,"Uruguay":2,"Francia":2,"Inglaterra":1,"España":1};
+const STAGENAME={gr:"Fase de grupos",r32:"Dieciseisavos",r16:"Octavos de final",qf:"Cuartos de final",sf:"Semifinal",tp:"Tercer puesto",fin:"Gran final"};
+function teamConf(t){for(const k in CONF){if(CONF[k].includes(t))return k}return ""}
+function teamInfo(t){const c=teamConf(t),tt=TITLES[t];return (c?c+" · ":"")+(tt?tt+"× campeón":"Sin títulos")}
+// ===== Datos Don Bosco para el reverso (verificables · FECU Social 2025 / institucional) =====
+const DBFACTS=[
+ {n:"1998",t:"Obra salesiana activa en Chile desde 1998: más de 28 años acompañando a niños, niñas y adolescentes."},
+ {n:"2.043",t:"personas fueron acompañadas durante 2025 en nuestros programas. (FECU Social 2025)"},
+ {n:"⚽",t:"Para Don Bosco, jugar nunca fue perder el tiempo: el deporte educa, protege y abre futuro. Por eso existe el Patio."},
+ {n:"+130",t:"países aplican el Sistema Preventivo de Don Bosco —razón, espiritualidad y afecto— desde 1859."},
+ {n:"84,9%",t:"de recuperación global alcanzaron los programas en 2025, subiendo desde 68,4% el año anterior. (FECU Social 2025)"},
+ {n:"+100 mil",t:"jóvenes en más de 50 países crecen en un Patio Don Bosco, donde el juego y el deporte son el corazón del método."},
+ {n:"15",t:"programas sociales a lo largo de Chile: un camino completo de prevención, rehabilitación y reinserción. (FECU Social 2025)"},
+ {n:"❤",t:"Nuestros pilares: Alegría, Justicia Social y Presencia. No solo atendemos: acompañamos, donde ellos están."}
+];
+let factCursor=0;
+function backHTML(m){
+ const vi=VENUEINFO[m.v];
+ const est=vi?vi.est:m.v;
+ const loc=vi?(m.v+" · "+vi.pais):m.v;
+ const fase=STAGENAME[m.s]||"";
+ const ronda=m.g.startsWith("P")?("Partido "+m.g.slice(1)):("Grupo "+m.g);
+ const reales=[m.a,m.b].filter(t=>FLAGS[t]);
+ const teamRow=(t)=>`<div class="bteam"><span class="bflag">${F(t)}</span><span class="bt-n">${t}</span><span class="bt-d">${teamInfo(t)}</span></div>`;
+ const teamsBlock=reales.length?`<div class="bteams">${reales.map(teamRow).join("")}</div>`:`<div class="btbd">⏳ Equipos por definir según resultados.</div>`;
+ const f=DBFACTS[factCursor++ % DBFACTS.length];
+ const dbfact=`<div class="dbfact"><div class="dbfact-top"><span class="dbnum">${f.n}</span><span class="dbfact-t">${f.t}</span></div></div>`;
+ return `<div class="back-hd">📋 Ficha del partido</div>
+   <div class="brow"><span class="bi">🏟️</span><span>${est}</span></div>
+   <div class="bsub">${loc}</div>
+   <div class="brow"><span class="bi">🏆</span><span>${fase} · ${ronda}</span></div>
+   ${teamsBlock}
+   ${dbfact}
+   <button type="button" class="fliphint back-hint">↩ Volver al partido</button>`;
+}
+
+function matchFav(m){return !!favs[mid(m)]}
+function favCount(){return Object.keys(favs).length}
+function saveFavs(){try{localStorage.setItem("wc26_favs",JSON.stringify(favs))}catch(e){}}
+function toggleFav(m){const id=mid(m);favs[id]?delete favs[id]:favs[id]=1;saveFavs();render()}
+
+function updateFavBadge(){
+ const b=document.getElementById("favBadge");
+ const n=favCount();
+ if(n>0){b.textContent=n;b.style.display="inline-block"}else{b.style.display="none"}
+}
+
+function render(){
+ updateFavBadge();factCursor=0;
+ const app=document.getElementById("app");
+ let list=M.filter(m=>{
+   if(curStage!=="all"&&m.s!==curStage)return false;
+   if(curChan==="fav"&&!matchFav(m))return false;
+   if(curChan!=="all"&&curChan!=="fav"&&!m.ch.includes(curChan))return false;
+   if(curQ){const hay=norm(m.a+" "+m.b+" "+m.v+" "+(m.g.startsWith("P")?m.g:"grupo "+m.g));if(!hay.includes(curQ))return false}
+   return true;
+ });
+ const status=document.getElementById("status");
+ if(status)status.textContent=list.length+" partido"+(list.length===1?"":"s")+" en pantalla";
+ if(!list.length){
+   const msg=curChan==="fav"
+     ? 'Aún no tienes partidos favoritos.<br>Toca la ⭐ de cualquier partido para guardarlo.'
+     : 'No hay partidos con esos filtros.<br>Prueba con otra selección o canal.';
+   app.innerHTML='<div class="empty"><div class="big">'+(curChan==="fav"?'⭐':'🔍')+'</div>'+msg+'</div>';
+   return;
+ }
+ // group by day
+ const days=[];const map={};
+ list.forEach(m=>{if(!map[m.dk]){map[m.dk]={d:m.d,items:[]};days.push(m.dk)}map[m.dk].items.push(m)});
+ let html="";
+ days.forEach(dk=>{
+   const grp=map[dk];
+   html+=`<div class="daygroup"><div class="dayhdr"><span class="dot"></span><h2>${grp.d}</h2><span class="line"></span><span class="cnt">${grp.items.length} ${grp.items.length===1?'partido':'partidos'}</span></div><div class="matches">`;
+   grp.items.forEach(m=>{
+     const fav=matchFav(m);
+     const R=RESULTS[mid(m)];
+     const teamRow=(t,mine,other)=>`<div class="team"><span class="flag">${F(t)}</span><span class="tname">${t}</span>${R?`<span class="score${mine>other?' win':''}">${mine}</span>`:''}</div>`;
+     const chans=m.ch.map(c=>`<span class="ch ${chClass(c)}">${c}</span>`).join("");
+     const tag=m.tag?`<span class="grp" style="background:rgba(245,197,66,.2);color:var(--gold);border-color:rgba(245,197,66,.4)">${m.tag}</span>`:"";
+     html+=`<div class="match${m.feat?' feat':''}">
+       <div class="flip-inner">
+         <div class="face front">
+           <button type="button" class="star${fav?' on':''}" data-id="${mid(m)}" aria-pressed="${fav?'true':'false'}" aria-label="${fav?'Quitar de favoritos':'Marcar como favorito'}">${fav?'⭐':'☆'}</button>
+           <button type="button" class="fliphint front-hint" aria-expanded="false" aria-label="Ver datos del partido">↻</button>
+           <div class="mrow">
+             <div class="mtime"><div class="hr">${m.t}</div><div class="lbl">${R?(R.st==='LIVE'?'JUGANDO':'JUGADO'):(m.t==='—'?'POR DEF.':'CHILE')}</div><div class="sep"></div></div>
+             <div class="mteams">
+               ${teamRow(m.a,R&&R.a,R&&R.b)}
+               <div class="vs">${R?'':'VS'}</div>
+               ${teamRow(m.b,R&&R.b,R&&R.a)}
+             </div>
+           </div>
+           <div class="mfoot">
+             ${R?`<span class="status ${R.st==='LIVE'?'live':'ft'}">${R.st==='LIVE'?(R.min?'🔴 '+R.min+"'":'🔴 EN VIVO'):'✓ Final'}</span>`:''}
+             <span class="grp">${m.g.startsWith('P')?m.g:'Grupo '+m.g}</span>
+             ${tag}
+             <span class="venue">📍 ${m.v}</span>
+             <span class="chans">${chans}</span>
+           </div>
+         </div>
+         <div class="face back">${backHTML(m)}</div>
+       </div>
+     </div>`;
+   });
+   html+="</div></div>";
+ });
+ app.innerHTML=html;
+ app.querySelectorAll(".star").forEach(s=>{
+   s.onclick=(ev)=>{ev.stopPropagation();const m=M.find(x=>mid(x)===s.dataset.id);if(m)toggleFav(m)};
+ });
+ // voltear tarjeta (clic en cualquier parte salvo la estrella; las pistas ↻/Volver burbujean aquí)
+ app.querySelectorAll(".match").forEach(card=>{
+   card.addEventListener("click",ev=>{
+     if(ev.target.closest(".star"))return;
+     const flipped=card.classList.toggle("flipped");
+     const fh=card.querySelector(".front-hint");
+     if(fh)fh.setAttribute("aria-expanded",flipped?"true":"false");
+   });
+ });
+ setupFocus();
+}
+
+// ===== Modo foco en móvil: destaca el partido centrado en pantalla =====
+let io=null;
+function setupFocus(){
+ const mobile=window.matchMedia("(max-width:560px)").matches;
+ const reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+ if(io){io.disconnect();io=null}
+ document.body.classList.toggle("focusmode",mobile&&!reduce);
+ if(!mobile||reduce)return;
+ io=new IntersectionObserver(entries=>{
+   entries.forEach(e=>{if(e.isIntersecting){
+     document.querySelectorAll(".match.infocus").forEach(x=>{if(x!==e.target)x.classList.remove("infocus")});
+     e.target.classList.add("infocus");
+   }});
+ },{rootMargin:"-45% 0px -45% 0px",threshold:0});
+ document.querySelectorAll(".match").forEach(m=>io.observe(m));
+}
+let _rz;window.addEventListener("resize",()=>{clearTimeout(_rz);_rz=setTimeout(setupFocus,200)});
+
+// scroll top
+const stop=document.getElementById("stop");
+window.addEventListener("scroll",()=>{stop.classList.toggle("show",window.scrollY>500)});
+stop.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+
+render();
+
+// ===== Resultados (los completa el robot diario en resultados.json) =====
+function loadResults(){
+ fetch('resultados.json?_='+Date.now(),{cache:'no-store'})
+  .then(r=>r.ok?r.json():{})
+  .then(j=>{RESULTS=j||{};render()})
+  .catch(()=>{});
+}
+loadResults();
+</script>
+</body>
+</html>
