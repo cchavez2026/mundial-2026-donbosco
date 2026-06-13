@@ -70,8 +70,11 @@
   .search svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);opacity:.5;color:var(--mut)}
   .scrollrow{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:4px 2px;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
   .scrollrow::-webkit-scrollbar{display:none}
-  .tabs{margin-top:11px}
+  .views{margin-top:11px}
+  .views .tab{font-size:14.5px;padding:10px 18px}
+  .tabs{margin-top:9px}
   .filters{margin-top:8px}
+  .banner{margin:18px 2px 2px;background:var(--red-tint);border:1px solid #f3d2d4;border-left:3px solid var(--red);border-radius:12px;padding:11px 15px;font-size:13.5px;font-weight:700;color:#5a3a3b}
   .tab{flex:0 0 auto;padding:9px 16px;border-radius:20px;scroll-snap-align:start;background:#fff;border:1px solid var(--line);color:var(--mut);font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;transition:background .18s,border-color .18s,color .18s}
   .tab.active{background:var(--red);color:#fff;border-color:var(--red);box-shadow:0 4px 12px rgba(227,30,36,.28)}
   .chip{flex:0 0 auto;padding:8px 14px;border-radius:18px;font-size:12.5px;font-weight:700;scroll-snap-align:start;background:#fff;border:1px solid var(--line);color:var(--mut);cursor:pointer;transition:background .15s,border-color .15s,color .15s;display:flex;align-items:center;gap:5px}
@@ -236,6 +239,7 @@
       <input id="q" name="buscar" type="search" autocomplete="off" autocorrect="off" spellcheck="false" role="combobox" aria-expanded="false" aria-controls="suggList" aria-autocomplete="list" aria-label="Buscar partido por selección, sede o grupo" placeholder="Buscar selección, sede o grupo… (prueba “Brasil”)">
       <div id="suggList" class="sugg" role="listbox" aria-label="Sugerencias de búsqueda"></div>
     </div>
+    <div class="scrollrow views" id="views" role="group" aria-label="Vista principal"></div>
     <div class="scrollrow tabs" id="tabs"></div>
     <div class="scrollrow filters" id="filters" role="group" aria-label="Filtrar por canal">
       <button type="button" class="chip active" data-ch="all">Todos</button>
@@ -433,6 +437,30 @@ STAGES.forEach(st=>{
  tabsEl.appendChild(b);
 });
 
+// ===== Vistas principales: Hoy / Calendario / Resultados anteriores =====
+const VIEWS=[{k:"hoy",n:"⚡ Hoy"},{k:"cal",n:"📅 Calendario"},{k:"prev",n:"✅ Resultados"}];
+let curView="hoy";
+const viewsEl=document.getElementById("views");
+VIEWS.forEach(v=>{
+ const b=document.createElement("button");
+ b.type="button";
+ b.className="tab"+(v.k===curView?" active":"");
+ b.textContent=v.n;b.dataset.v=v.k;
+ b.setAttribute("aria-pressed",v.k===curView?"true":"false");
+ b.onclick=()=>{curView=v.k;[...viewsEl.children].forEach(c=>{const on=c.dataset.v===v.k;c.classList.toggle("active",on);c.setAttribute("aria-pressed",on?"true":"false")});syncControls();render();window.scrollTo({top:0})};
+ viewsEl.appendChild(b);
+});
+// Los tabs de fase solo tienen sentido en "Calendario"; los canales no aplican a "Resultados".
+function syncControls(){
+ document.getElementById("tabs").style.display=(curView==="cal")?"flex":"none";
+ document.getElementById("filters").style.display=(curView==="prev")?"none":"flex";
+}
+// Fecha de hoy "MM-DD" en horario de Chile (comparación lexicográfica válida: meses 06 y 07)
+function todayKey(){
+ const n=new Date(new Date().toLocaleString("en-US",{timeZone:"America/Santiago"}));
+ return String(n.getMonth()+1).padStart(2,"0")+"-"+String(n.getDate()).padStart(2,"0");
+}
+
 // filters
 document.querySelectorAll(".chip").forEach(c=>{
  c.onclick=()=>{
@@ -570,26 +598,45 @@ function updateFavBadge(){
 function render(){
  updateFavBadge();factCursor=0;
  const app=document.getElementById("app");
+ const TODAY=todayKey();
+ let banner="";
  let list=M.filter(m=>{
-   if(curStage!=="all"&&m.s!==curStage)return false;
+   // Si hay búsqueda, busca en TODO el torneo (ignora la vista); si no, filtra por vista.
+   if(curQ){
+     const hay=norm(m.a+" "+m.b+" "+m.v+" "+(m.g.startsWith("P")?m.g:"grupo "+m.g));
+     if(!hay.includes(curQ))return false;
+   }else if(curView==="hoy"){
+     if(m.dk!==TODAY)return false;
+   }else if(curView==="cal"){
+     if(m.dk<TODAY)return false;
+     if(curStage!=="all"&&m.s!==curStage)return false;
+   }else{ // prev: partidos pasados que YA tienen marcador cargado
+     if(!(m.dk<TODAY&&RESULTS[mid(m)]))return false;
+   }
    if(curChan==="fav"&&!matchFav(m))return false;
    if(curChan!=="all"&&curChan!=="fav"&&!m.ch.includes(curChan))return false;
-   if(curQ){const hay=norm(m.a+" "+m.b+" "+m.v+" "+(m.g.startsWith("P")?m.g:"grupo "+m.g));if(!hay.includes(curQ))return false}
    return true;
  });
+ // "Hoy" sin partidos → mostrar los próximos para no dejar la pantalla vacía
+ if(curView==="hoy"&&!curQ&&curChan==="all"&&!list.length){
+   const fut=[...new Set(M.filter(m=>m.dk>TODAY).map(m=>m.dk))].sort();
+   if(fut.length){list=M.filter(m=>m.dk===fut[0]);banner="📅 Hoy no hay partidos programados. Estos son los próximos:";}
+ }
  const status=document.getElementById("status");
  if(status)status.textContent=list.length+" partido"+(list.length===1?"":"s")+" en pantalla";
  if(!list.length){
-   const msg=curChan==="fav"
-     ? 'Aún no tienes partidos favoritos.<br>Toca la ⭐ de cualquier partido para guardarlo.'
-     : 'No hay partidos con esos filtros.<br>Prueba con otra selección o canal.';
-   app.innerHTML='<div class="empty"><div class="big">'+(curChan==="fav"?'⭐':'🔍')+'</div>'+msg+'</div>';
+   let icon,msg;
+   if(curView==="prev"){icon="📭";msg='Todavía no hay resultados anteriores.<br>Aquí aparecerán los partidos ya jugados.';}
+   else if(curChan==="fav"){icon="⭐";msg='Aún no tienes partidos favoritos.<br>Toca la ⭐ de cualquier partido para guardarlo.';}
+   else{icon="🔍";msg='No hay partidos con esos filtros.<br>Prueba con otra selección o canal.';}
+   app.innerHTML='<div class="empty"><div class="big">'+icon+'</div>'+msg+'</div>';
    return;
  }
  // group by day
  const days=[];const map={};
  list.forEach(m=>{if(!map[m.dk]){map[m.dk]={d:m.d,items:[]};days.push(m.dk)}map[m.dk].items.push(m)});
- let html="";
+ if(curView==="prev"&&!curQ)days.reverse(); // resultados: los más recientes primero
+ let html=banner?`<div class="banner">${banner}</div>`:"";
  days.forEach(dk=>{
    const grp=map[dk];
    html+=`<div class="daygroup"><div class="dayhdr"><span class="dot"></span><h2>${grp.d}</h2><span class="line"></span><span class="cnt">${grp.items.length} ${grp.items.length===1?'partido':'partidos'}</span></div><div class="matches">`;
@@ -665,6 +712,7 @@ const stop=document.getElementById("stop");
 window.addEventListener("scroll",()=>{stop.classList.toggle("show",window.scrollY>500)});
 stop.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
 
+syncControls();
 render();
 
 // ===== Resultados (los completa el robot diario en resultados.json) =====
