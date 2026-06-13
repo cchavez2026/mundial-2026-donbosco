@@ -1,1 +1,6 @@
-{}
+{
+  "06-1115:00MéxicoSudáfrica": {"a": 2, "b": 0, "st": "FT"},
+  "06-1122:00Corea del SurChequia": {"a": 2, "b": 1, "st": "FT"},
+  "06-1215:00CanadáBosnia": {"a": 1, "b": 1, "st": "FT"},
+  "06-1221:00EE.UU.Paraguay": {"a": 2, "b": 0, "st": "FT"}
+}
