@@ -675,6 +675,11 @@ function loadResults(){
   .catch(()=>{});
 }
 loadResults();
+// Re-cargar al volver a la app (reabrir el ícono / dar foco) — clave para la app instalada (PWA)
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)loadResults()});
+window.addEventListener('focus',loadResults);
+// Y refrescar solo cada 3 min mientras esté abierta (resultados en vivo)
+setInterval(loadResults,180000);
 </script>
 </body>
 </html>
