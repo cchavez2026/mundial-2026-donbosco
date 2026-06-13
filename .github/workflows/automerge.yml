@@ -1,0 +1,41 @@
+name: Auto-publicar resultados del robot
+
+# Cuando el robot (rutina Claude) empuja su rama claude/**, esta Action
+# toma SOLO resultados.json de esa rama y lo commitea a main, para que
+# Netlify publique. No hace merge completo: evita conflictos y nunca
+# toca otros archivos.
+
+on:
+  push:
+    branches:
+      - 'claude/**'
+
+permissions:
+  contents: write
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (historial completo)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Tomar resultados.json de la rama del robot y publicar en main
+        run: |
+          set -e
+          BRANCH="${GITHUB_REF_NAME}"
+          echo "Rama del robot: $BRANCH"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout main
+          # Traer solo resultados.json desde la rama del robot
+          git checkout "origin/$BRANCH" -- resultados.json
+          if git diff --cached --quiet; then
+            echo "Sin cambios en resultados.json; nada que publicar."
+            exit 0
+          fi
+          git commit -m "Publica resultados Mundial 2026 (auto desde $BRANCH)"
+          git push origin main
+          echo "resultados.json publicado en main."
