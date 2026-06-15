@@ -6,5 +6,9 @@
   "06-1300:00AustraliaTurquía": {"a": 2, "b": 0, "st": "FT"},
   "06-1315:00QatarSuiza": {"a": 1, "b": 1, "st": "FT"},
   "06-1318:00BrasilMarruecos": {"a": 1, "b": 1, "st": "FT"},
-  "06-1321:00HaitíEscocia": {"a": 0, "b": 1, "st": "FT"}
+  "06-1321:00HaitíEscocia": {"a": 0, "b": 1, "st": "FT"},
+  "06-1413:00AlemaniaCurazao": {"a": 7, "b": 1, "st": "FT"},
+  "06-1416:00Países BajosJapón": {"a": 2, "b": 2, "st": "FT"},
+  "06-1419:00Costa de MarfilEcuador": {"a": 1, "b": 0, "st": "FT"},
+  "06-1422:00SueciaTúnez": {"a": 5, "b": 1, "st": "FT"}
 }
