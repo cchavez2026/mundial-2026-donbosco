@@ -22,5 +22,9 @@
   "06-1713:00PortugalRD Congo": {"a": 1, "b": 1, "st": "FT"},
   "06-1716:00InglaterraCroacia": {"a": 4, "b": 2, "st": "FT"},
   "06-1719:00GhanaPanamá": {"a": 1, "b": 0, "st": "FT"},
-  "06-1722:00UzbekistánColombia": {"a": 1, "b": 3, "st": "FT"}
+  "06-1722:00UzbekistánColombia": {"a": 1, "b": 3, "st": "FT"},
+  "06-1812:00ChequiaSudáfrica": {"a": 1, "b": 1, "st": "FT"},
+  "06-1815:00SuizaBosnia": {"a": 4, "b": 1, "st": "FT"},
+  "06-1818:00CanadáQatar": {"a": 6, "b": 0, "st": "FT"},
+  "06-1821:00MéxicoCorea del Sur": {"a": 1, "b": 0, "st": "FT"}
 }
