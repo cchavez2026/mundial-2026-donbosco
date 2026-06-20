@@ -26,5 +26,9 @@
   "06-1812:00ChequiaSudáfrica": {"a": 1, "b": 1, "st": "FT"},
   "06-1815:00SuizaBosnia": {"a": 4, "b": 1, "st": "FT"},
   "06-1818:00CanadáQatar": {"a": 6, "b": 0, "st": "FT"},
-  "06-1821:00MéxicoCorea del Sur": {"a": 1, "b": 0, "st": "FT"}
+  "06-1821:00MéxicoCorea del Sur": {"a": 1, "b": 0, "st": "FT"},
+  "06-1915:00EE.UU.Australia": {"a": 2, "b": 0, "st": "FT"},
+  "06-1918:00EscociaMarruecos": {"a": 0, "b": 1, "st": "FT"},
+  "06-1920:30BrasilHaití": {"a": 3, "b": 0, "st": "FT"},
+  "06-1923:00TurquíaParaguay": {"a": 0, "b": 1, "st": "FT"}
 }
