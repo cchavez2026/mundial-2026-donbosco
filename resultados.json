@@ -34,5 +34,9 @@
   "06-2000:00TúnezJapón": {"a": 0, "b": 4, "st": "FT"},
   "06-2013:00Países BajosSuecia": {"a": 5, "b": 1, "st": "FT"},
   "06-2016:00AlemaniaCosta de Marfil": {"a": 2, "b": 1, "st": "FT"},
-  "06-2020:00EcuadorCurazao": {"a": 0, "b": 0, "st": "FT"}
+  "06-2020:00EcuadorCurazao": {"a": 0, "b": 0, "st": "FT"},
+  "06-2112:00EspañaArabia Saudita": {"a": 4, "b": 0, "st": "FT"},
+  "06-2115:00BélgicaIrán": {"a": 0, "b": 0, "st": "FT"},
+  "06-2118:00UruguayCabo Verde": {"a": 2, "b": 2, "st": "FT"},
+  "06-2121:00Nueva ZelandaEgipto": {"a": 1, "b": 3, "st": "FT"}
 }
