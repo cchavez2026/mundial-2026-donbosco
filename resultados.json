@@ -38,5 +38,9 @@
   "06-2112:00EspañaArabia Saudita": {"a": 4, "b": 0, "st": "FT"},
   "06-2115:00BélgicaIrán": {"a": 0, "b": 0, "st": "FT"},
   "06-2118:00UruguayCabo Verde": {"a": 2, "b": 2, "st": "FT"},
-  "06-2121:00Nueva ZelandaEgipto": {"a": 1, "b": 3, "st": "FT"}
+  "06-2121:00Nueva ZelandaEgipto": {"a": 1, "b": 3, "st": "FT"},
+  "06-2213:00ArgentinaAustria": {"a": 2, "b": 0, "st": "FT"},
+  "06-2217:00FranciaIrak": {"a": 3, "b": 0, "st": "FT"},
+  "06-2220:00NoruegaSenegal": {"a": 3, "b": 2, "st": "FT"},
+  "06-2223:00JordaniaArgelia": {"a": 1, "b": 2, "st": "FT"}
 }
