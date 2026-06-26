@@ -52,5 +52,11 @@
   "06-2418:00EscociaBrasil": {"a": 0, "b": 3, "st": "FT"},
   "06-2418:00MarruecosHaití": {"a": 4, "b": 2, "st": "FT"},
   "06-2421:00ChequiaMéxico": {"a": 0, "b": 3, "st": "FT"},
-  "06-2421:00SudáfricaCorea del Sur": {"a": 1, "b": 0, "st": "FT"}
+  "06-2421:00SudáfricaCorea del Sur": {"a": 1, "b": 0, "st": "FT"},
+  "06-2516:00CurazaoCosta de Marfil": {"a": 0, "b": 2, "st": "FT"},
+  "06-2516:00EcuadorAlemania": {"a": 2, "b": 1, "st": "FT"},
+  "06-2519:00JapónSuecia": {"a": 1, "b": 1, "st": "FT"},
+  "06-2519:00TúnezPaíses Bajos": {"a": 1, "b": 3, "st": "FT"},
+  "06-2522:00TurquíaEE.UU.": {"a": 3, "b": 2, "st": "FT"},
+  "06-2522:00ParaguayAustralia": {"a": 0, "b": 0, "st": "FT"}
 }
