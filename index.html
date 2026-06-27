@@ -715,11 +715,30 @@ stop.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
 syncControls();
 render();
 
-// ===== Resultados (los completa el robot diario en resultados.json) =====
+// ===== Resultados + fixture (los completa el robot diario en resultados.json) =====
+// Resuelve los placeholders de la fase eliminatoria ("2º Grupo A", "Ganador P73",
+// "3º C/D/F…") usando el mapa _bracket que mantiene el robot. Siempre resuelve
+// desde el placeholder ORIGINAL (guardado en _a0/_b0), así es idempotente: si el
+// cruce aún no está definido, queda el placeholder como hasta ahora.
+function applyBracket(BR){
+ M.forEach(m=>{
+  if(m.s==='gr')return;
+  if(m._a0===undefined){m._a0=m.a;m._b0=m.b;}
+  m.a=BR[m._a0]||m._a0;
+  m.b=BR[m._b0]||m._b0;
+ });
+}
 function loadResults(){
  fetch('resultados.json?_='+Date.now(),{cache:'no-store'})
   .then(r=>r.ok?r.json():{})
-  .then(j=>{RESULTS=j||{};render()})
+  .then(j=>{
+    j=j||{};
+    const BR=j._bracket||{};
+    const R={};for(const k in j){if(k!=='_bracket')R[k]=j[k];}
+    RESULTS=R;
+    applyBracket(BR);
+    render();
+  })
   .catch(()=>{});
 }
 loadResults();
