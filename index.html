@@ -635,6 +635,9 @@ function render(){
  // group by day
  const days=[];const map={};
  list.forEach(m=>{if(!map[m.dk]){map[m.dk]={d:m.d,items:[]};days.push(m.dk)}map[m.dk].items.push(m)});
+ // Ordenar cada día por hora (cronológico); los "por definir" (—) van al final.
+ const tkey=(m)=>m.t==="—"?"99:99":m.t;
+ days.forEach(dk=>map[dk].items.sort((x,y)=>tkey(x)<tkey(y)?-1:tkey(x)>tkey(y)?1:0));
  if(curView==="prev"&&!curQ)days.reverse(); // resultados: los más recientes primero
  let html=banner?`<div class="banner">${banner}</div>`:"";
  days.forEach(dk=>{
