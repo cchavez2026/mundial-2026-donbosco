@@ -71,6 +71,7 @@
   "06-2719:30RD CongoUzbekistán": {"a": 3, "b": 1, "st": "FT"},
   "06-2722:00ArgeliaAustria": {"a": 3, "b": 3, "st": "FT"},
   "06-2722:00JordaniaArgentina": {"a": 1, "b": 3, "st": "FT"},
+  "06-2815:00SudáfricaCanadá": {"a": 0, "b": 1, "st": "FT"},
   "_bracket": {
     "1º Grupo A": "México",
     "2º Grupo A": "Sudáfrica",
@@ -103,6 +104,8 @@
     "3º B/E/F/I/J": "Bosnia",
     "3º A/E/H/I/J": "Senegal",
     "3º E/F/G/I/J": "Argelia",
-    "3º D/E/I/J/L": "Ghana"
+    "3º D/E/I/J/L": "Ghana",
+    "Ganador P73": "Canadá",
+    "Perdedor P73": "Sudáfrica"
   }
 }
