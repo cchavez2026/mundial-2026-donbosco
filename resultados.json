@@ -1,84 +1,399 @@
 {
-  "06-1115:00MéxicoSudáfrica": {"a": 2, "b": 0, "st": "FT"},
-  "06-1122:00Corea del SurChequia": {"a": 2, "b": 1, "st": "FT"},
-  "06-1215:00CanadáBosnia": {"a": 1, "b": 1, "st": "FT"},
-  "06-1221:00EE.UU.Paraguay": {"a": 4, "b": 1, "st": "FT"},
-  "06-1300:00AustraliaTurquía": {"a": 2, "b": 0, "st": "FT"},
-  "06-1315:00QatarSuiza": {"a": 1, "b": 1, "st": "FT"},
-  "06-1318:00BrasilMarruecos": {"a": 1, "b": 1, "st": "FT"},
-  "06-1321:00HaitíEscocia": {"a": 0, "b": 1, "st": "FT"},
-  "06-1413:00AlemaniaCurazao": {"a": 7, "b": 1, "st": "FT"},
-  "06-1416:00Países BajosJapón": {"a": 2, "b": 2, "st": "FT"},
-  "06-1419:00Costa de MarfilEcuador": {"a": 1, "b": 0, "st": "FT"},
-  "06-1422:00SueciaTúnez": {"a": 5, "b": 1, "st": "FT"},
-  "06-1512:00EspañaCabo Verde": {"a": 0, "b": 0, "st": "FT"},
-  "06-1515:00BélgicaEgipto": {"a": 1, "b": 1, "st": "FT"},
-  "06-1518:00Arabia SauditaUruguay": {"a": 1, "b": 1, "st": "FT"},
-  "06-1521:00IránNueva Zelanda": {"a": 2, "b": 2, "st": "FT"},
-  "06-1615:00FranciaSenegal": {"a": 3, "b": 1, "st": "FT"},
-  "06-1618:00IrakNoruega": {"a": 1, "b": 4, "st": "FT"},
-  "06-1621:00ArgentinaArgelia": {"a": 3, "b": 0, "st": "FT"},
-  "06-1700:00AustriaJordania": {"a": 3, "b": 1, "st": "FT"},
-  "06-1713:00PortugalRD Congo": {"a": 1, "b": 1, "st": "FT"},
-  "06-1716:00InglaterraCroacia": {"a": 4, "b": 2, "st": "FT"},
-  "06-1719:00GhanaPanamá": {"a": 1, "b": 0, "st": "FT"},
-  "06-1722:00UzbekistánColombia": {"a": 1, "b": 3, "st": "FT"},
-  "06-1812:00ChequiaSudáfrica": {"a": 1, "b": 1, "st": "FT"},
-  "06-1815:00SuizaBosnia": {"a": 4, "b": 1, "st": "FT"},
-  "06-1818:00CanadáQatar": {"a": 6, "b": 0, "st": "FT"},
-  "06-1821:00MéxicoCorea del Sur": {"a": 1, "b": 0, "st": "FT"},
-  "06-1915:00EE.UU.Australia": {"a": 2, "b": 0, "st": "FT"},
-  "06-1918:00EscociaMarruecos": {"a": 0, "b": 1, "st": "FT"},
-  "06-1920:30BrasilHaití": {"a": 3, "b": 0, "st": "FT"},
-  "06-1923:00TurquíaParaguay": {"a": 0, "b": 1, "st": "FT"},
-  "06-2000:00TúnezJapón": {"a": 0, "b": 4, "st": "FT"},
-  "06-2013:00Países BajosSuecia": {"a": 5, "b": 1, "st": "FT"},
-  "06-2016:00AlemaniaCosta de Marfil": {"a": 2, "b": 1, "st": "FT"},
-  "06-2020:00EcuadorCurazao": {"a": 0, "b": 0, "st": "FT"},
-  "06-2112:00EspañaArabia Saudita": {"a": 4, "b": 0, "st": "FT"},
-  "06-2115:00BélgicaIrán": {"a": 0, "b": 0, "st": "FT"},
-  "06-2118:00UruguayCabo Verde": {"a": 2, "b": 2, "st": "FT"},
-  "06-2121:00Nueva ZelandaEgipto": {"a": 1, "b": 3, "st": "FT"},
-  "06-2213:00ArgentinaAustria": {"a": 2, "b": 0, "st": "FT"},
-  "06-2217:00FranciaIrak": {"a": 3, "b": 0, "st": "FT"},
-  "06-2220:00NoruegaSenegal": {"a": 3, "b": 2, "st": "FT"},
-  "06-2223:00JordaniaArgelia": {"a": 1, "b": 2, "st": "FT"},
-  "06-2313:00PortugalUzbekistán": {"a": 5, "b": 0, "st": "FT"},
-  "06-2316:00InglaterraGhana": {"a": 0, "b": 0, "st": "FT"},
-  "06-2319:00PanamáCroacia": {"a": 0, "b": 1, "st": "FT"},
-  "06-2322:00ColombiaRD Congo": {"a": 1, "b": 0, "st": "FT"},
-  "06-2415:00SuizaCanadá": {"a": 2, "b": 1, "st": "FT"},
-  "06-2415:00BosniaQatar": {"a": 3, "b": 1, "st": "FT"},
-  "06-2418:00EscociaBrasil": {"a": 0, "b": 3, "st": "FT"},
-  "06-2418:00MarruecosHaití": {"a": 4, "b": 2, "st": "FT"},
-  "06-2421:00ChequiaMéxico": {"a": 0, "b": 3, "st": "FT"},
-  "06-2421:00SudáfricaCorea del Sur": {"a": 1, "b": 0, "st": "FT"},
-  "06-2516:00CurazaoCosta de Marfil": {"a": 0, "b": 2, "st": "FT"},
-  "06-2516:00EcuadorAlemania": {"a": 2, "b": 1, "st": "FT"},
-  "06-2519:00JapónSuecia": {"a": 1, "b": 1, "st": "FT"},
-  "06-2519:00TúnezPaíses Bajos": {"a": 1, "b": 3, "st": "FT"},
-  "06-2522:00TurquíaEE.UU.": {"a": 3, "b": 2, "st": "FT"},
-  "06-2522:00ParaguayAustralia": {"a": 0, "b": 0, "st": "FT"},
-  "06-2615:00NoruegaFrancia": {"a": 1, "b": 4, "st": "FT"},
-  "06-2615:00SenegalIrak": {"a": 5, "b": 0, "st": "FT"},
-  "06-2620:00Cabo VerdeArabia Saudita": {"a": 1, "b": 1, "st": "FT"},
-  "06-2620:00UruguayEspaña": {"a": 0, "b": 1, "st": "FT"},
-  "06-2623:00EgiptoIrán": {"a": 1, "b": 1, "st": "FT"},
-  "06-2623:00Nueva ZelandaBélgica": {"a": 1, "b": 5, "st": "FT"},
-  "06-2717:00PanamáInglaterra": {"a": 0, "b": 2, "st": "FT"},
-  "06-2717:00CroaciaGhana": {"a": 2, "b": 1, "st": "FT"},
-  "06-2719:30ColombiaPortugal": {"a": 0, "b": 0, "st": "FT"},
-  "06-2719:30RD CongoUzbekistán": {"a": 3, "b": 1, "st": "FT"},
-  "06-2722:00ArgeliaAustria": {"a": 3, "b": 3, "st": "FT"},
-  "06-2722:00JordaniaArgentina": {"a": 1, "b": 3, "st": "FT"},
-  "06-2815:00SudáfricaCanadá": {"a": 0, "b": 1, "st": "FT"},
-  "06-2913:00BrasilJapón": {"a": 2, "b": 1, "st": "FT"},
-  "06-2916:30AlemaniaParaguay": {"a": 1, "b": 1, "st": "FT"},
-  "06-2921:00Países BajosMarruecos": {"a": 1, "b": 1, "st": "FT"},
-  "06-3013:00Costa de MarfilNoruega": {"a": 1, "b": 2, "st": "FT"},
-  "06-3017:00FranciaSuecia": {"a": 3, "b": 0, "st": "FT"},
-  "06-3021:00MéxicoEcuador": {"a": 2, "b": 0, "st": "FT"},
-  "07-0112:00InglaterraRD Congo": {"a": 2, "b": 0, "st": "FT"},
+  "06-1115:00MéxicoSudáfrica": {
+    "a": 2,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-1122:00Corea del SurChequia": {
+    "a": 2,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-1215:00CanadáBosnia": {
+    "a": 1,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-1221:00EE.UU.Paraguay": {
+    "a": 4,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-1300:00AustraliaTurquía": {
+    "a": 2,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-1315:00QatarSuiza": {
+    "a": 1,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-1318:00BrasilMarruecos": {
+    "a": 1,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-1321:00HaitíEscocia": {
+    "a": 0,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-1413:00AlemaniaCurazao": {
+    "a": 7,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-1416:00Países BajosJapón": {
+    "a": 2,
+    "b": 2,
+    "st": "FT"
+  },
+  "06-1419:00Costa de MarfilEcuador": {
+    "a": 1,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-1422:00SueciaTúnez": {
+    "a": 5,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-1512:00EspañaCabo Verde": {
+    "a": 0,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-1515:00BélgicaEgipto": {
+    "a": 1,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-1518:00Arabia SauditaUruguay": {
+    "a": 1,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-1521:00IránNueva Zelanda": {
+    "a": 2,
+    "b": 2,
+    "st": "FT"
+  },
+  "06-1615:00FranciaSenegal": {
+    "a": 3,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-1618:00IrakNoruega": {
+    "a": 1,
+    "b": 4,
+    "st": "FT"
+  },
+  "06-1621:00ArgentinaArgelia": {
+    "a": 3,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-1700:00AustriaJordania": {
+    "a": 3,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-1713:00PortugalRD Congo": {
+    "a": 1,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-1716:00InglaterraCroacia": {
+    "a": 4,
+    "b": 2,
+    "st": "FT"
+  },
+  "06-1719:00GhanaPanamá": {
+    "a": 1,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-1722:00UzbekistánColombia": {
+    "a": 1,
+    "b": 3,
+    "st": "FT"
+  },
+  "06-1812:00ChequiaSudáfrica": {
+    "a": 1,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-1815:00SuizaBosnia": {
+    "a": 4,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-1818:00CanadáQatar": {
+    "a": 6,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-1821:00MéxicoCorea del Sur": {
+    "a": 1,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-1915:00EE.UU.Australia": {
+    "a": 2,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-1918:00EscociaMarruecos": {
+    "a": 0,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-1920:30BrasilHaití": {
+    "a": 3,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-1923:00TurquíaParaguay": {
+    "a": 0,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-2000:00TúnezJapón": {
+    "a": 0,
+    "b": 4,
+    "st": "FT"
+  },
+  "06-2013:00Países BajosSuecia": {
+    "a": 5,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-2016:00AlemaniaCosta de Marfil": {
+    "a": 2,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-2020:00EcuadorCurazao": {
+    "a": 0,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-2112:00EspañaArabia Saudita": {
+    "a": 4,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-2115:00BélgicaIrán": {
+    "a": 0,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-2118:00UruguayCabo Verde": {
+    "a": 2,
+    "b": 2,
+    "st": "FT"
+  },
+  "06-2121:00Nueva ZelandaEgipto": {
+    "a": 1,
+    "b": 3,
+    "st": "FT"
+  },
+  "06-2213:00ArgentinaAustria": {
+    "a": 2,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-2217:00FranciaIrak": {
+    "a": 3,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-2220:00NoruegaSenegal": {
+    "a": 3,
+    "b": 2,
+    "st": "FT"
+  },
+  "06-2223:00JordaniaArgelia": {
+    "a": 1,
+    "b": 2,
+    "st": "FT"
+  },
+  "06-2313:00PortugalUzbekistán": {
+    "a": 5,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-2316:00InglaterraGhana": {
+    "a": 0,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-2319:00PanamáCroacia": {
+    "a": 0,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-2322:00ColombiaRD Congo": {
+    "a": 1,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-2415:00SuizaCanadá": {
+    "a": 2,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-2415:00BosniaQatar": {
+    "a": 3,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-2418:00EscociaBrasil": {
+    "a": 0,
+    "b": 3,
+    "st": "FT"
+  },
+  "06-2418:00MarruecosHaití": {
+    "a": 4,
+    "b": 2,
+    "st": "FT"
+  },
+  "06-2421:00ChequiaMéxico": {
+    "a": 0,
+    "b": 3,
+    "st": "FT"
+  },
+  "06-2421:00SudáfricaCorea del Sur": {
+    "a": 1,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-2516:00CurazaoCosta de Marfil": {
+    "a": 0,
+    "b": 2,
+    "st": "FT"
+  },
+  "06-2516:00EcuadorAlemania": {
+    "a": 2,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-2519:00JapónSuecia": {
+    "a": 1,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-2519:00TúnezPaíses Bajos": {
+    "a": 1,
+    "b": 3,
+    "st": "FT"
+  },
+  "06-2522:00TurquíaEE.UU.": {
+    "a": 3,
+    "b": 2,
+    "st": "FT"
+  },
+  "06-2522:00ParaguayAustralia": {
+    "a": 0,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-2615:00NoruegaFrancia": {
+    "a": 1,
+    "b": 4,
+    "st": "FT"
+  },
+  "06-2615:00SenegalIrak": {
+    "a": 5,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-2620:00Cabo VerdeArabia Saudita": {
+    "a": 1,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-2620:00UruguayEspaña": {
+    "a": 0,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-2623:00EgiptoIrán": {
+    "a": 1,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-2623:00Nueva ZelandaBélgica": {
+    "a": 1,
+    "b": 5,
+    "st": "FT"
+  },
+  "06-2717:00PanamáInglaterra": {
+    "a": 0,
+    "b": 2,
+    "st": "FT"
+  },
+  "06-2717:00CroaciaGhana": {
+    "a": 2,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-2719:30ColombiaPortugal": {
+    "a": 0,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-2719:30RD CongoUzbekistán": {
+    "a": 3,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-2722:00ArgeliaAustria": {
+    "a": 3,
+    "b": 3,
+    "st": "FT"
+  },
+  "06-2722:00JordaniaArgentina": {
+    "a": 1,
+    "b": 3,
+    "st": "FT"
+  },
+  "06-2815:00SudáfricaCanadá": {
+    "a": 0,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-2913:00BrasilJapón": {
+    "a": 2,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-2916:30AlemaniaParaguay": {
+    "a": 1,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-2921:00Países BajosMarruecos": {
+    "a": 1,
+    "b": 1,
+    "st": "FT"
+  },
+  "06-3013:00Costa de MarfilNoruega": {
+    "a": 1,
+    "b": 2,
+    "st": "FT"
+  },
+  "06-3017:00FranciaSuecia": {
+    "a": 3,
+    "b": 0,
+    "st": "FT"
+  },
+  "06-3021:00MéxicoEcuador": {
+    "a": 2,
+    "b": 0,
+    "st": "FT"
+  },
   "_bracket": {
     "1º Grupo A": "México",
     "2º Grupo A": "Sudáfrica",
