@@ -75,6 +75,10 @@
   "06-2913:00BrasilJapón": {"a": 2, "b": 1, "st": "FT"},
   "06-2916:30AlemaniaParaguay": {"a": 1, "b": 1, "st": "FT"},
   "06-2921:00Países BajosMarruecos": {"a": 1, "b": 1, "st": "FT"},
+  "06-3013:00Costa de MarfilNoruega": {"a": 1, "b": 2, "st": "FT"},
+  "06-3017:00FranciaSuecia": {"a": 3, "b": 0, "st": "FT"},
+  "06-3021:00MéxicoEcuador": {"a": 2, "b": 0, "st": "FT"},
+  "07-0112:00InglaterraRD Congo": {"a": 2, "b": 0, "st": "FT"},
   "_bracket": {
     "1º Grupo A": "México",
     "2º Grupo A": "Sudáfrica",
@@ -115,6 +119,14 @@
     "Ganador P75": "Marruecos",
     "Perdedor P75": "Países Bajos",
     "Ganador P76": "Brasil",
-    "Perdedor P76": "Japón"
+    "Perdedor P76": "Japón",
+    "Ganador P77": "Francia",
+    "Perdedor P77": "Suecia",
+    "Ganador P78": "Noruega",
+    "Perdedor P78": "Costa de Marfil",
+    "Ganador P79": "México",
+    "Perdedor P79": "Ecuador",
+    "Ganador P80": "Inglaterra",
+    "Perdedor P80": "RD Congo"
   }
 }
