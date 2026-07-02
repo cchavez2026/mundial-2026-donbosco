@@ -394,6 +394,21 @@
     "b": 0,
     "st": "FT"
   },
+  "07-0112:00InglaterraRD Congo": {
+    "a": 2,
+    "b": 1,
+    "st": "FT"
+  },
+  "07-0116:00BélgicaSenegal": {
+    "a": 3,
+    "b": 2,
+    "st": "FT"
+  },
+  "07-0120:00EE.UU.Bosnia": {
+    "a": 2,
+    "b": 0,
+    "st": "FT"
+  },
   "_bracket": {
     "1º Grupo A": "México",
     "2º Grupo A": "Sudáfrica",
@@ -442,6 +457,10 @@
     "Ganador P79": "México",
     "Perdedor P79": "Ecuador",
     "Ganador P80": "Inglaterra",
-    "Perdedor P80": "RD Congo"
+    "Perdedor P80": "RD Congo",
+    "Ganador P81": "EE.UU.",
+    "Perdedor P81": "Bosnia",
+    "Ganador P82": "Bélgica",
+    "Perdedor P82": "Senegal"
   }
 }
