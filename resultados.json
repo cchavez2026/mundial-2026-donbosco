@@ -409,6 +409,21 @@
     "b": 0,
     "st": "FT"
   },
+  "07-0215:00EspañaAustria": {
+    "a": 3,
+    "b": 0,
+    "st": "FT"
+  },
+  "07-0219:00PortugalCroacia": {
+    "a": 2,
+    "b": 1,
+    "st": "FT"
+  },
+  "07-0223:00SuizaArgelia": {
+    "a": 2,
+    "b": 0,
+    "st": "FT"
+  },
   "_bracket": {
     "1º Grupo A": "México",
     "2º Grupo A": "Sudáfrica",
@@ -461,6 +476,12 @@
     "Ganador P81": "EE.UU.",
     "Perdedor P81": "Bosnia",
     "Ganador P82": "Bélgica",
-    "Perdedor P82": "Senegal"
+    "Perdedor P82": "Senegal",
+    "Ganador P83": "Portugal",
+    "Perdedor P83": "Croacia",
+    "Ganador P84": "España",
+    "Perdedor P84": "Austria",
+    "Ganador P85": "Suiza",
+    "Perdedor P85": "Argelia"
   }
 }
