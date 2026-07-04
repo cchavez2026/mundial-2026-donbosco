@@ -424,6 +424,21 @@
     "b": 0,
     "st": "FT"
   },
+  "07-0314:00AustraliaEgipto": {
+    "a": 1,
+    "b": 1,
+    "st": "FT"
+  },
+  "07-0318:00ArgentinaCabo Verde": {
+    "a": 3,
+    "b": 2,
+    "st": "FT"
+  },
+  "07-0321:30ColombiaGhana": {
+    "a": 1,
+    "b": 0,
+    "st": "FT"
+  },
   "_bracket": {
     "1º Grupo A": "México",
     "2º Grupo A": "Sudáfrica",
@@ -482,6 +497,12 @@
     "Ganador P84": "España",
     "Perdedor P84": "Austria",
     "Ganador P85": "Suiza",
-    "Perdedor P85": "Argelia"
+    "Perdedor P85": "Argelia",
+    "Ganador P86": "Argentina",
+    "Perdedor P86": "Cabo Verde",
+    "Ganador P87": "Colombia",
+    "Perdedor P87": "Ghana",
+    "Ganador P88": "Egipto",
+    "Perdedor P88": "Australia"
   }
 }
