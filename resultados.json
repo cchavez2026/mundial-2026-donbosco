@@ -439,6 +439,16 @@
     "b": 0,
     "st": "FT"
   },
+  "07-0413:00CanadáMarruecos": {
+    "a": 0,
+    "b": 3,
+    "st": "FT"
+  },
+  "07-0417:00ParaguayFrancia": {
+    "a": 0,
+    "b": 1,
+    "st": "FT"
+  },
   "_bracket": {
     "1º Grupo A": "México",
     "2º Grupo A": "Sudáfrica",
@@ -503,6 +513,10 @@
     "Ganador P87": "Colombia",
     "Perdedor P87": "Ghana",
     "Ganador P88": "Egipto",
-    "Perdedor P88": "Australia"
+    "Perdedor P88": "Australia",
+    "Ganador P89": "Francia",
+    "Perdedor P89": "Paraguay",
+    "Ganador P90": "Marruecos",
+    "Perdedor P90": "Canadá"
   }
 }
