@@ -449,6 +449,16 @@
     "b": 1,
     "st": "FT"
   },
+  "07-0516:00BrasilNoruega": {
+    "a": 1,
+    "b": 2,
+    "st": "FT"
+  },
+  "07-0520:00MéxicoInglaterra": {
+    "a": 2,
+    "b": 3,
+    "st": "FT"
+  },
   "_bracket": {
     "1º Grupo A": "México",
     "2º Grupo A": "Sudáfrica",
@@ -517,6 +527,10 @@
     "Ganador P89": "Francia",
     "Perdedor P89": "Paraguay",
     "Ganador P90": "Marruecos",
-    "Perdedor P90": "Canadá"
+    "Perdedor P90": "Canadá",
+    "Ganador P91": "Noruega",
+    "Perdedor P91": "Brasil",
+    "Ganador P92": "Inglaterra",
+    "Perdedor P92": "México"
   }
 }
