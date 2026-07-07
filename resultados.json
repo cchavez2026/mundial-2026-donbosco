@@ -459,6 +459,16 @@
     "b": 3,
     "st": "FT"
   },
+  "07-0615:00PortugalEspaña": {
+    "a": 0,
+    "b": 1,
+    "st": "FT"
+  },
+  "07-0620:00EE.UU.Bélgica": {
+    "a": 1,
+    "b": 4,
+    "st": "FT"
+  },
   "_bracket": {
     "1º Grupo A": "México",
     "2º Grupo A": "Sudáfrica",
@@ -531,6 +541,10 @@
     "Ganador P91": "Noruega",
     "Perdedor P91": "Brasil",
     "Ganador P92": "Inglaterra",
-    "Perdedor P92": "México"
+    "Perdedor P92": "México",
+    "Ganador P93": "España",
+    "Perdedor P93": "Portugal",
+    "Ganador P94": "Bélgica",
+    "Perdedor P94": "EE.UU."
   }
 }
