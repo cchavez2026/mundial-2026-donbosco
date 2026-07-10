@@ -479,6 +479,11 @@
     "b": 0,
     "st": "FT"
   },
+  "07-0916:00FranciaMarruecos": {
+    "a": 2,
+    "b": 0,
+    "st": "FT"
+  },
   "_bracket": {
     "1º Grupo A": "México",
     "2º Grupo A": "Sudáfrica",
@@ -559,6 +564,8 @@
     "Ganador P95": "Argentina",
     "Perdedor P95": "Egipto",
     "Ganador P96": "Suiza",
-    "Perdedor P96": "Colombia"
+    "Perdedor P96": "Colombia",
+    "Ganador P97": "Francia",
+    "Perdedor P97": "Marruecos"
   }
 }
