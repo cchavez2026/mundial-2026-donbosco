@@ -484,6 +484,11 @@
     "b": 0,
     "st": "FT"
   },
+  "07-1015:00EspañaBélgica": {
+    "a": 2,
+    "b": 1,
+    "st": "FT"
+  },
   "_bracket": {
     "1º Grupo A": "México",
     "2º Grupo A": "Sudáfrica",
@@ -566,6 +571,8 @@
     "Ganador P96": "Suiza",
     "Perdedor P96": "Colombia",
     "Ganador P97": "Francia",
-    "Perdedor P97": "Marruecos"
+    "Perdedor P97": "Marruecos",
+    "Ganador P98": "España",
+    "Perdedor P98": "Bélgica"
   }
 }
