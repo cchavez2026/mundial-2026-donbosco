@@ -489,6 +489,16 @@
     "b": 1,
     "st": "FT"
   },
+  "07-1117:00NoruegaInglaterra": {
+    "a": 1,
+    "b": 2,
+    "st": "FT"
+  },
+  "07-1121:00ArgentinaSuiza": {
+    "a": 3,
+    "b": 1,
+    "st": "FT"
+  },
   "_bracket": {
     "1º Grupo A": "México",
     "2º Grupo A": "Sudáfrica",
@@ -573,6 +583,10 @@
     "Ganador P97": "Francia",
     "Perdedor P97": "Marruecos",
     "Ganador P98": "España",
-    "Perdedor P98": "Bélgica"
+    "Perdedor P98": "Bélgica",
+    "Ganador P99": "Inglaterra",
+    "Perdedor P99": "Noruega",
+    "Ganador P100": "Argentina",
+    "Perdedor P100": "Suiza"
   }
 }
