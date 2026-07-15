@@ -504,6 +504,11 @@
     "b": 2,
     "st": "FT"
   },
+  "07-1515:00InglaterraArgentina": {
+    "a": 1,
+    "b": 2,
+    "st": "FT"
+  },
   "_bracket": {
     "1º Grupo A": "México",
     "2º Grupo A": "Sudáfrica",
@@ -594,6 +599,8 @@
     "Ganador P100": "Argentina",
     "Perdedor P100": "Suiza",
     "Ganador P101": "España",
-    "Perdedor P101": "Francia"
+    "Perdedor P101": "Francia",
+    "Ganador P102": "Argentina",
+    "Perdedor P102": "Inglaterra"
   }
 }
